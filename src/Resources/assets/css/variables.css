@@ -1,0 +1,5 @@
+body {
+  --purple-1400: theme('colors.purple.1400');
+  --primary-color: theme('colors.blue.300');
+  --secondary-color: theme('colors.green.200');
+}

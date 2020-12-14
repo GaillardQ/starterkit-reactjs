@@ -1,0 +1,37 @@
+---
+- hosts: recette
+  remote_user: jenkins
+  vars:
+    project_live_dir: /var/www/web
+    project_build_dir: /var/www/webdav
+    git_repo: git@github.com:GaillardQ/starterkit-reactjs.git
+    git_branch: master
+    files_owner: root
+    files_group: root
+    node: /usr/local/n/versions/node/12.4.0/bin/node
+    yarn: /usr/bin/yarn
+  tasks:
+    - name: Assign all files to jenkins
+      file: dest={{ project_build_dir }} owner=jenkins group=jenkins recurse=yes
+      become: true
+    - name: Git pull
+      git: repo={{ git_repo }} dest={{ project_build_dir }} key_file=~/.ssh/id_rsa version={{ git_branch }} force=true
+    - name: Yarn install
+      command: '{{ node }} {{ yarn }} install'
+      args:
+        chdir: '{{ project_build_dir }}'
+    - name: Yarn build
+      command: '{{ node }} {{ yarn }} run build'
+      args:
+        chdir: '{{ project_build_dir }}'
+    - name: Assign all files to jenkins
+      file: dest={{ project_live_dir }} owner=jenkins group=jenkins recurse=yes
+      become: true
+    - name: Sync
+      synchronize:
+        src: '{{project_build_dir}}/build/'
+        dest: '{{ project_live_dir }}'
+      delegate_to: '{{ inventory_hostname }}'
+    - name: Assign all files to web server client
+      file: dest={{ project_live_dir }} owner={{ files_owner }} group={{ files_group }} recurse=yes
+      become: true

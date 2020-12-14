@@ -1,0 +1,17 @@
+# Mac file
+.DS_Store
+
+# Dependencies
+node_modules
+yarn-error.log
+
+# Build
+build
+
+# Generated resources
+src/Resources/assets/css/main.css
+
+# SonarQube
+.scannerwork/
+reports/
+coverage/

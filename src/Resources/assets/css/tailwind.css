@@ -1,0 +1,25 @@
+@import './variables.css';
+
+@import 'tailwindcss/base';
+
+@import './components/autocomplete.css';
+@import './components/checkbox.css';
+@import './components/datepicker.css';
+@import './components/dropdown.css';
+@import './components/radiogroup.css';
+@import './components/textfield.css';
+@import './components/timepicker.css';
+@import 'tailwindcss/components';
+
+@import 'utilities.css';
+@import 'tailwindcss/utilities';
+
+html,
+body,
+#root,
+main {
+  @apply h-full w-full;
+}
+body {
+  @apply font-roboto;
+}
