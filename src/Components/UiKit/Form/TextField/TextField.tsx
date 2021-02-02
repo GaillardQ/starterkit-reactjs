@@ -98,4 +98,6 @@ TextField.defaultProps = {
   canDisplayPassword: false,
 };
 
+TextField.propTypes = {};
+
 export default TextField;

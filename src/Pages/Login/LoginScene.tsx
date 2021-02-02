@@ -79,4 +79,6 @@ const LoginScene: FC<Types.IProps> = () => {
   );
 };
 
+LoginScene.propTypes = {};
+
 export default LoginScene;

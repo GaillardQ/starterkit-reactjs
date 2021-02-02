@@ -15,4 +15,6 @@ const Separator: FC<Types.IProps> = ({ className, type }) => {
   return <div className={`bg-gray-400 mx-1 ${getClasses()} ${className}`} />;
 };
 
+Separator.propTypes = {};
+
 export default Separator;

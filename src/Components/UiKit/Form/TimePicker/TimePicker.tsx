@@ -58,4 +58,6 @@ TimePicker.defaultProps = {
   iconColor: 'white',
 };
 
+TimePicker.propTypes = {};
+
 export default TimePicker;

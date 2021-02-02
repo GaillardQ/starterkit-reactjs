@@ -39,4 +39,6 @@ SlidingMenu.defaultProps = {
   isOpen: false,
 };
 
+SlidingMenu.propTypes = {};
+
 export default SlidingMenu;

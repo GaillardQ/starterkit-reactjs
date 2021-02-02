@@ -58,4 +58,6 @@ const RadioGroup: FC<Types.IProps> = ({
   );
 };
 
+RadioGroup.propTypes = {};
+
 export default RadioGroup;

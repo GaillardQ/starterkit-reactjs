@@ -15,4 +15,6 @@ BaseLayout.defaultProps = {
   className: '',
 };
 
+BaseLayout.propTypes = {};
+
 export default BaseLayout;

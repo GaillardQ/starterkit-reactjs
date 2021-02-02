@@ -28,4 +28,6 @@ const LogguedScene: FC<Types.IProps> = () => {
   );
 };
 
+LogguedScene.propTypes = {};
+
 export default LogguedScene;

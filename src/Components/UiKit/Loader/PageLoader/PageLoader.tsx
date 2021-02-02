@@ -16,4 +16,6 @@ const PageLoader: FC<Types.IProps> = ({ message }) => {
   );
 };
 
+PageLoader.propTypes = {};
+
 export default PageLoader;

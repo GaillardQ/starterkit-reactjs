@@ -19,4 +19,6 @@ const HelperTooltip: FC<Types.IProps> = ({ message }) => {
   );
 };
 
+HelperTooltip.propTypes = {};
+
 export default HelperTooltip;

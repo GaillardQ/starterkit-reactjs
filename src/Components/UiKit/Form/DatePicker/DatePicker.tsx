@@ -69,4 +69,6 @@ DatePicker.defaultProps = {
   needTime: false,
 };
 
+DatePicker.propTypes = {};
+
 export default DatePicker;

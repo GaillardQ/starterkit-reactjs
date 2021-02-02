@@ -17,4 +17,6 @@ const FieldError: FC<Types.IProps> = ({ errors, touched }) => (
   </div>
 );
 
+FieldError.propTypes = {};
+
 export default FieldError;

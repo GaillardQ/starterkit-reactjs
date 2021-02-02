@@ -17,4 +17,6 @@ const ExampleScene: FC<Types.IProps> = () => (
   </BaseLayout>
 );
 
+ExampleScene.propTypes = {};
+
 export default ExampleScene;

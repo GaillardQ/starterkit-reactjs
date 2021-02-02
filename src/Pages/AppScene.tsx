@@ -57,4 +57,6 @@ const AppScene: FC = () => {
   );
 };
 
+AppScene.propTypes = {};
+
 export default AppScene;

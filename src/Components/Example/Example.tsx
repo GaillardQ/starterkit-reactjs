@@ -205,4 +205,6 @@ const Example: FC<Types.IProps> = () => {
   );
 };
 
+Example.propTypes = {};
+
 export default Example;

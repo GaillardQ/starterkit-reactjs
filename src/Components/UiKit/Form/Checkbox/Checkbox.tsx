@@ -48,4 +48,6 @@ const Checkbox: FC<Types.IProps> = ({
   );
 };
 
+Checkbox.propTypes = {};
+
 export default Checkbox;

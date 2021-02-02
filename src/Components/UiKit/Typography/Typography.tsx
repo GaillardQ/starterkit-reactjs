@@ -21,4 +21,6 @@ const Typography: FC<Types.IProps> = ({ children, ...props }) => {
   );
 };
 
+Typography.propTypes = {};
+
 export default Typography;

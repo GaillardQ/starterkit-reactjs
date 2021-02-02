@@ -86,4 +86,6 @@ BaseCard.defaultProps = {
   headerConfig: {},
 };
 
+BaseCard.propTypes = {};
+
 export default BaseCard;

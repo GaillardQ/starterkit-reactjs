@@ -42,4 +42,6 @@ const LoginForm: FC<Types.IProps> = ({
   </Formik>
 );
 
+LoginForm.propTypes = {};
+
 export default LoginForm;

@@ -52,4 +52,6 @@ const Dropdown: FC<Types.IProps> = ({ field, form, options, ...props }) => {
   );
 };
 
+Dropdown.propTypes = {};
+
 export default Dropdown;

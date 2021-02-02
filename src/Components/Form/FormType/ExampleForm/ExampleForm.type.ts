@@ -1,6 +1,6 @@
 // React libs
 import moment from 'moment';
-import { FormikHelpers } from 'formik';
+import { IBaseFormType } from '../FormType.type';
 
 export interface IFormValues {
   arrivalDateTime: moment.Moment | null;
@@ -16,11 +16,4 @@ export interface IFormValues {
   password: string;
 }
 
-export interface IProps {
-  defaultValues: IFormValues;
-  onFormSubmit: (
-    values: IFormValues,
-    helpers: FormikHelpers<IFormValues>
-  ) => void;
-  validationSchema: any;
-}
+export interface IProps extends IBaseFormType<IFormValues> {}

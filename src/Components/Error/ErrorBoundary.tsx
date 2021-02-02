@@ -1,5 +1,6 @@
 // React libs
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 // Common
 import Common from '../../Resources/Common/index';
 // Type
@@ -10,6 +11,13 @@ class ErrorBoundary extends Component<
   Types.IErrorBoundaryProps,
   Types.IErrorBoundaryState
 > {
+  static propTypes = {
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+    ]).isRequired,
+  };
+
   constructor(props: Types.IErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };

@@ -47,4 +47,6 @@ const PdfDocument: FC<Types.IProps> = ({ content, title }) => {
   );
 };
 
+PdfDocument.propTypes = {};
+
 export default PdfDocument;

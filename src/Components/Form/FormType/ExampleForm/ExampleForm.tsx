@@ -177,4 +177,6 @@ const ExampleForm: FC<Types.IProps> = ({
   );
 };
 
+ExampleForm.propTypes = {};
+
 export default ExampleForm;

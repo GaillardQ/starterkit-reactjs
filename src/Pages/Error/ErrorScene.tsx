@@ -16,4 +16,6 @@ const ErrorBoundary: FC<Types.IProps> = ({ match }) => {
   return code === 404 ? render404Page() : renderErrorPage();
 };
 
+ErrorBoundary.propTypes = {};
+
 export default ErrorBoundary;

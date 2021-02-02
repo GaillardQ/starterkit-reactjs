@@ -102,4 +102,7 @@ Autocomplete.defaultProps = {
   freeSolo: false,
   multiple: false,
 };
+
+Autocomplete.propTypes = {};
+
 export default Autocomplete;

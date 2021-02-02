@@ -30,4 +30,6 @@ const Button: FC<ButtonProps> = ({ children, ...props }) => {
   );
 };
 
+Button.propTypes = {};
+
 export default Button;
