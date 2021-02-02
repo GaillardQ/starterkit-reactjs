@@ -36,8 +36,7 @@ const RadioGroup: FC<Types.IProps> = ({
   };
 
   return (
-    <div className='w-full'
-      data-testid='radiogroup'>
+    <div className='w-full'>
       <FormControl component='fieldset'>
         <FormLabel component='legend' className='text-white'>
           {label}

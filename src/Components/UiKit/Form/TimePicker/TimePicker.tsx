@@ -26,7 +26,7 @@ const TimePicker: FC<Types.IProps> = ({
     },
   };
   return (
-    <div className='w-full' data-testid='timepicker'>
+    <div className='w-full'>
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardTimePicker
           clearable

@@ -14,36 +14,73 @@ const Autocomplete: FC<Types.IProps> = ({
   form,
   label,
   options,
+  multiple,
+  onInputChange,
+  onSelectValue,
+  ...props
 }) => {
   const { errors, touched } = form;
 
   const getValue = () => {
-    let value = null;
+    let value: any[] | any = multiple ? [] : null;
     if (field.value) {
-      const option = options.find(
-        (o: any) =>
-          o.value.toString().toLowerCase() ===
-          field.value.toString().toLowerCase()
-      );
-      value = option;
+      if (multiple) {
+        field.value.forEach((v: string) => {
+          const res = options.find(
+            (o: Types.IOption) =>
+              v.toString().toLowerCase() === o.value.toString().toLowerCase()
+          );
+          if (res) {
+            value?.push(res);
+          }
+        });
+      } else {
+        const option = options.find(
+          (o: any) =>
+            o.value.toString().toLowerCase() ===
+            field.value.toString().toLowerCase()
+        );
+        value = option;
+      }
     }
     return value;
   };
+  const updateFieldValue = (event: any, newValue: any) => {
+    form.setFieldTouched(field.name, true);
+    if (multiple) {
+      form.setFieldValue(
+        field.name,
+        newValue
+          ? newValue.reduce((list: any[], v: Types.IOption) => {
+              list.push(v.value);
+              return list;
+            }, [])
+          : []
+      );
+    } else {
+      form.setFieldValue(field.name, newValue ? newValue.value : '');
+    }
+
+    if (onSelectValue) {
+      onSelectValue(newValue);
+    }
+  };
+  let otherProps: any = {};
+  if (onInputChange) {
+    otherProps = Object.assign(otherProps, { onInputChange });
+  }
   return (
-    <div className='w-full' data-testid='autocomplete'>
+    <div className='w-full'>
       <AutocompleteComponent
+        multiple={multiple}
         options={options as any}
         getOptionLabel={(value: Types.IOption) => (value ? value.label : '')}
-        id={`auto-complete-${field.id}`}
         value={getValue()}
-        clearOnEscape
+        classes={{ popper: 'z-1600' }}
         autoComplete
         includeInputInList
         disabled={disabled === true}
-        onChange={(event: any, newValue: any) => {
-          form.setFieldTouched(field.name, true);
-          form.setFieldValue(field.name, newValue ? newValue.value : '');
-        }}
+        onChange={updateFieldValue}
         renderInput={params => (
           <TextFieldComponent
             {...params}
@@ -53,10 +90,16 @@ const Autocomplete: FC<Types.IProps> = ({
             margin='none'
           />
         )}
+        {...props}
+        {...otherProps}
       />
       <FieldError errors={errors[field.name]} touched={touched[field.name]} />
     </div>
   );
 };
 
+Autocomplete.defaultProps = {
+  freeSolo: false,
+  multiple: false,
+};
 export default Autocomplete;

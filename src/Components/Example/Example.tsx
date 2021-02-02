@@ -88,7 +88,7 @@ const Example: FC<Types.IProps> = () => {
   });
 
   return (
-    <div className='h-full w-full' data-testid='example-component'>
+    <div className='h-full w-full'>
       <Typography variant='h2' component='h2'>
         EXAMPLE COMPONENT
       </Typography>

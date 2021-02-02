@@ -51,7 +51,7 @@ const DatePicker: FC<Types.IProps> = ({
   };
 
   return (
-    <div className='w-full' data-testid='datepicker'>
+    <div className='w-full'>
       <MuiPickersUtilsProvider utils={MomentUtils}>
         {needTime ? (
           <KeyboardDateTimePicker {...mixedProperties} />

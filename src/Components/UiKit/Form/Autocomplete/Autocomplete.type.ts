@@ -5,5 +5,10 @@ export interface IOption {
   label: string;
 }
 export interface IProps extends TextFieldTypes.IProps {
+  freeSolo?: boolean;
+  filterOptions?: (...args: any) => any;
   options: IOption[];
+  multiple?: boolean;
+  onInputChange?: (...args: any) => any;
+  onSelectValue?: (...args: any) => any;
 }

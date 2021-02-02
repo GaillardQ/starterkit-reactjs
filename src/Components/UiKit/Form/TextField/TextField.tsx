@@ -59,7 +59,12 @@ const TextField: FC<Types.IProps> = ({
   if (icon) {
     const defaultIconProps = (
       <InputAdornment position={icon.position}>
-        <icon.component />
+        <icon.component
+          onClick={(e: any) => {
+            if (icon.onClick) icon.onClick(e);
+          }}
+          className={icon.onClick ? 'cursor-pointer' : ''}
+        />
       </InputAdornment>
     );
     if (icon.position === 'start') {
@@ -74,9 +79,9 @@ const TextField: FC<Types.IProps> = ({
   }
 
   return (
-    <div className='w-full' data-testid='textfield'>
+    <div className='w-full'>
       <TextFieldComponent
-        className='w-full'
+        classes={{ root: 'w-full' }}
         error={touched[field.name] && errors[field.name] !== undefined}
         helperText={helper}
         InputProps={inputProps}

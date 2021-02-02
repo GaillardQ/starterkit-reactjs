@@ -32,8 +32,7 @@ const Dropdown: FC<Types.IProps> = ({ field, form, options, ...props }) => {
   };
 
   return (
-    <div className='w-full'
-      data-testid='dropdown'>
+    <div className='w-full'>
       <TextField
         select
         value={getValue()}

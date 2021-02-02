@@ -12,7 +12,7 @@ const LogguedScene: FC<Types.IProps> = () => {
   const data = LocalStorage.get('login');
   return (
     <BaseLayout>
-      <Typography variant='h1' component='h1' data-testid='title'>
+      <Typography variant='h1' component='h1'>
         Accueil
       </Typography>
       {data && (

@@ -18,8 +18,8 @@ const Checkbox: FC<Types.IProps> = ({
 
   const customClasses = {
     root: '',
-    colorPrimary: 'text-orange-300', // example
-    colorSecondary: 'text-pink-500', // example
+    colorPrimary: 'text-red-610',
+    colorSecondary: 'text-selection',
   };
 
   const customField = {
@@ -30,8 +30,7 @@ const Checkbox: FC<Types.IProps> = ({
     },
   };
   return (
-    <div className='w-full'
-      data-testid='checkbox'>
+    <div className='w-full'>
       <FormControlLabel
         control={
           <CheckboxComponent

@@ -7,10 +7,10 @@ const ErrorBoundary: FC<Types.IProps> = ({ match }) => {
   const code: number = parseInt(match.params.code, 10);
 
   const render404Page = () => {
-    return <div data-testid='error'>ERREUR 404</div>;
+    return <div>ERREUR 404</div>;
   };
   const renderErrorPage = () => {
-    return <div data-testid='error'>ERROR</div>;
+    return <div>ERROR</div>;
   };
 
   return code === 404 ? render404Page() : renderErrorPage();

@@ -5,15 +5,15 @@ import ErrorIcon from '@material-ui/icons/Error';
 import * as Types from './FieldError.type';
 
 const FieldError: FC<Types.IProps> = ({ errors, touched }) => (
-  <div className='mt-1' data-testid='field-error'>
+  <div className='mt-1'>
     {touched && errors ? (
-      <div className='flex items-center text-red-500 text-xs'>
+      <div className='flex items-center text-red-500 text-xs font-extrabold'>
         <ErrorIcon className='mr-1 text-sm' />
         {errors}
       </div>
     ) : (
-        <div className='h-4-1/2' />
-      )}
+      <div className='h-4-1/2' />
+    )}
   </div>
 );
 

@@ -61,7 +61,7 @@ const LoginScene: FC<Types.IProps> = () => {
 
   return (
     <BaseLayout>
-      <Typography variant='h1' component='h1' data-testid='title'>
+      <Typography variant='h1' component='h1'>
         Connexion
       </Typography>
       <div>{renderForm()}</div>
