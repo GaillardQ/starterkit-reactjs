@@ -1,11 +1,11 @@
 // Service
-import LocalStorage from '../Storage/LocalStorage';
+import LocalStorage from '../Services/Storage/LocalStorage';
 // Types
-import * as WsExceptionTypes from '../../Model/WsException.type';
+import * as WsExceptionTypes from '../../Data/Model/WsException.type';
 // Utils
 import ServicesUrls from './ServicesUrls';
 // Common
-import Common from '../../../Resources/Common';
+import Common from '../../Resources/Common';
 
 export interface IPostParams {
   key: string;

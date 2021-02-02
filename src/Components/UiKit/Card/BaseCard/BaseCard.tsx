@@ -52,7 +52,7 @@ function BaseCard(props: Types.IProps) {
   };
   return (
     <Card
-      className={`flex flex-col max-h-full overflow-hidden p-5 rounded-xl w-full ${getColorClasses()} ${className}`}
+      className={`flex flex-col max-h-full m-2 overflow-hidden p-5 rounded-xl w-full ${getColorClasses()} ${className}`}
     >
       {header && (
         <Typography

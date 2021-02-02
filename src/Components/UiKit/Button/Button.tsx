@@ -5,15 +5,13 @@ import MaterialButton, { ButtonProps } from '@material-ui/core/Button';
 const Button: FC<ButtonProps> = ({ children, ...props }) => {
   const customClasses = {
     root: '',
-    textPrimary: 'text-red-610 hover:bg-transparent disabled:opacity-50',
-    textSecondary:
-      'bg-main-light text-gray-700 hover:bg-selection hover:text-selection-inverse',
-    outlinedPrimary:
-      'border-red-610 text-red-610 hover:bg-transparent disabled:opacity-50',
+    textPrimary: 'text-gray-700 disabled:opacity-50',
+    textSecondary: 'text-red-500',
+    outlinedPrimary: 'border-gray-700 text-gray-700 disabled:opacity-50',
     outlinedSecondary:
-      'border-gray-700 bg-main-light text-gray-700 hover:bg-selection hover:text-selection-inverse',
-    containedPrimary: 'bg-main-light text-gray-700',
-    containedSecondary: '',
+      'border-red-500 text-red-500 hover:bg-selection hover:text-selection-inverse disabled:opacity-50',
+    containedPrimary: 'bg-gray-700 text-white disabled:opacity-50',
+    containedSecondary: 'bg-red-500 text-white disabled:opacity-50',
     textSizeLarge: 'text-lg',
     textSizeSmall: 'text-xs',
     outlinedSizeLarge: 'text-lg',

@@ -1,7 +1,6 @@
 // React libs
 import React, { FC, useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import {
   TableContainer,
   Paper,
@@ -26,7 +25,6 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import Button from '../Button/Button';
 // Type
 import * as Types from './DataTable.type';
-import * as MapTypes from '../../../Network/Model/Map.type';
 
 const DataTable: FC<Types.ITableProps> = ({
   columns,
@@ -36,7 +34,6 @@ const DataTable: FC<Types.ITableProps> = ({
   rows,
 }) => {
   // Variables
-  const { t } = useTranslation(['components']);
   const rowsPerPageValues: any[] = [10, 50, 100];
 
   // State
@@ -210,8 +207,7 @@ const DataTable: FC<Types.ITableProps> = ({
                             unmountOnExit
                           >
                             <Box margin={1} className='overflow-x-auto'>
-                              {getRowDetails &&
-                                getRowDetails(r as MapTypes.ILayer)}
+                              {getRowDetails && getRowDetails(r)}
                             </Box>
                           </Collapse>
                         </TableCell>
@@ -232,7 +228,7 @@ const DataTable: FC<Types.ITableProps> = ({
         labelDisplayedRows={({ from, to, count }) =>
           `${from}-${to} (${count !== -1 ? count : `> ${to}`})`
         }
-        labelRowsPerPage={t('components:datatable.labelRowsPerPage')}
+        labelRowsPerPage={'Éléments par page'}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
         ActionsComponent={(props: any) => (
@@ -264,9 +260,6 @@ const TablePaginationActions = ({
   onChangePage,
   onCreate,
 }: Types.ITablePaginationActionsProps) => {
-  // Variables
-  const { t } = useTranslation(['components']);
-
   // Handlers
   const handleFirstPageButtonClick = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -313,7 +306,7 @@ const TablePaginationActions = ({
       </div>
       {onCreate && (
         <Button variant='outlined' onClick={onCreate}>
-          {t('components:datatable.add.label')}
+          Ajouter
         </Button>
       )}
     </div>

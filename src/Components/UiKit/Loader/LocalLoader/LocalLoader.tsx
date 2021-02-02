@@ -33,7 +33,7 @@ const LocalLoader: FC<Types.IProps> = ({ color, message, type }) => {
   };
   return (
     <div
-      className={`flex flex-col h-32 items-center justify-center rounded w-64 ${getContainerClasses()}`}
+      className={`flex flex-col h-full items-center justify-center rounded w-full ${getContainerClasses()}`}
     >
       <LoaderIcon className={`fill-current ${getElementClassName()}`} />
       <Typography

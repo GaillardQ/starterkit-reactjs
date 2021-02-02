@@ -7,6 +7,7 @@
 @import './components/datepicker.css';
 @import './components/dropdown.css';
 @import './components/radiogroup.css';
+@import './components/tabledata.css';
 @import './components/textfield.css';
 @import './components/timepicker.css';
 @import 'tailwindcss/components';
@@ -22,4 +23,24 @@ main {
 }
 body {
   @apply font-roboto;
+}
+*:focus {
+  @apply outline-none !important;
+}
+.sr-only {
+  display: none;
+}
+.marker-icon path {
+  stroke: #232323;
+  stroke-opacity: 0.8;
+  stroke-width: 1px;
+}
+.marker-icon .icon-white {
+  @apply text-white;
+}
+.marker-icon i {
+  @apply absolute a-center text-base;
+}
+.marker-icon i.icon-creation {
+  @apply -mt-2;
 }

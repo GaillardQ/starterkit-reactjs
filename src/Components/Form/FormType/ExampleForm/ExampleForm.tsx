@@ -56,7 +56,7 @@ const ExampleForm: FC<Types.IProps> = ({
       onSubmit={onFormSubmit}
       validationSchema={validationSchema}
     >
-      {(props: FormikProps<any>) => {
+      {({ isSubmitting }: FormikProps<any>) => {
         return (
           <Form className='flex flex-col h-full justify-between'>
             <div className='flex-1'>
@@ -162,11 +162,12 @@ const ExampleForm: FC<Types.IProps> = ({
             </div>
             <div className='flex justify-center lg:justify-end mt-3'>
               <Button
+                variant='outlined'
                 type='submit'
-                disabled={props.isSubmitting}
-                startIcon={props.isSubmitting ? <AutorenewIcon /> : null}
+                disabled={isSubmitting}
+                startIcon={isSubmitting ? <AutorenewIcon /> : null}
               >
-                {props.isSubmitting ? 'Soumettre' : 'Soumission'}
+                {isSubmitting ? 'Soumission...' : 'Soumettre'}
               </Button>
             </div>
           </Form>

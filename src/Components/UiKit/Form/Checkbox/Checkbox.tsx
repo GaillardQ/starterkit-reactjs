@@ -18,8 +18,8 @@ const Checkbox: FC<Types.IProps> = ({
 
   const customClasses = {
     root: '',
-    colorPrimary: 'text-red-610',
-    colorSecondary: 'text-selection',
+    colorPrimary: 'text-gray-700',
+    colorSecondary: 'text-red-500',
   };
 
   const customField = {

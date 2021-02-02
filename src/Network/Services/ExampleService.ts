@@ -1,6 +1,6 @@
 // Utils
-import ServicesUrls from './Utils/ServicesUrls';
-import ServicesUtils from './Utils/ServicesUtils';
+import ServicesUtils from '../Utils/ServicesUtils';
+import ServicesUrls from '../Utils/ServicesUrls';
 
 export default class ExerciseService {
   static getExample() {

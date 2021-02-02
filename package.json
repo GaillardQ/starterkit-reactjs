@@ -9,6 +9,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.45",
     "@material-ui/pickers": "^3.2.10",
+    "@react-pdf/renderer": "^1.6.12",
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^10.4.8",
     "@testing-library/user-event": "^7.1.2",
@@ -35,15 +36,14 @@
     "yup": "^0.28.3"
   },
   "scripts": {
+    "start": "npm-run-all -p watch-css start-js",
+    "watch-css": "postcss src/Resources/assets/css/tailwind.css -o src/Resources/assets/css/main.css --watch",
+    "start-js": "PORT=3003 react-scripts start",
     "build": "npm-run-all build-css build-js",
     "build-css": "postcss src/Resources/assets/css/tailwind.css -o src/Resources/assets/css/main.css",
     "build-js": "react-scripts build",
-    "dev": "npm-run-all -p watch-css start-js",
-    "watch-css": "postcss src/Resources/assets/css/tailwind.css -o src/Resources/assets/css/main.css --watch",
-    "start-js": "PORT=3003 react-scripts start",
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
-    "start": "react-scripts start",
     "eject": "react-scripts eject",
     "test": "react-scripts test --watchAll=false --env=jsdom --coverage --testResultsProcessor jest-sonar-reporter"
   },

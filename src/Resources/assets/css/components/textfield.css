@@ -1,49 +1,63 @@
 /* LABEL */
-.MuiTextField-root > .MuiInputLabel-root {
-  @apply text-white;
+.MuiTextField-root > .MuiInputLabel-root,
+.MuiTextField-root > .MuiInputLabel-root.Mui-focused {
+  @apply text-black;
 }
 .MuiTextField-root > .MuiInputLabel-root.MuiFormLabel-colorSecondary {
-  @apply text-black;
+  @apply text-white;
 }
 .MuiTextField-root > .MuiInputLabel-root.Mui-disabled {
   @apply text-gray-500;
 }
 
 /* INPUT */
-.MuiTextField-root > .MuiInput-root {
-  @apply text-white;
+.MuiTextField-root > .MuiInput-root,
+.MuiTextField-root > .MuiInput-root.Mui-focused {
+  @apply text-black;
 }
 .MuiTextField-root > .MuiInput-root.MuiInput-colorSecondary {
-  @apply text-black;
+  @apply text-white;
 }
 .MuiTextField-root > .MuiInput-root.Mui-disabled {
   @apply text-gray-500;
 }
 
 /* UNDERLINE */
-.MuiTextField-root > .MuiInput-underline::before {
-  @apply border-b border-white;
-}
-.MuiTextField-root > .MuiInput-underline:hover:not(.Mui-disabled)::before {
-  @apply border-b-2 border-white;
-}
 
-.MuiTextField-root > .MuiInput-colorSecondary.MuiInput-underline::before,
-.MuiTextField-root
-  > .MuiInput-colorSecondary.MuiInput-underline:not(.Mui-error)::after {
+.MuiTextField-root > .MuiInput-underline:not(.Mui-error)::before,
+.MuiTextField-root > .MuiInput-underline.Mui-focused:not(.Mui-error) ::before,
+.MuiTextField-root > .MuiInput-underline:not(.Mui-error)::after,
+.MuiTextField-root > .MuiInput-underline.Mui-focused:not(.Mui-error) ::after {
   @apply border-b border-black;
 }
 .MuiTextField-root
-  > .MuiInput-colorSecondary.MuiInput-underline:hover:not(.Mui-disabled)::before {
+  > .MuiInput-underline:hover:not(.Mui-disabled):not(.Mui-error)::before {
   @apply border-b-2 border-black;
+}
+.MuiTextField-root
+  > .MuiInput-colorSecondary.MuiInput-underline:not(.Mui-error)::before,
+.MuiTextField-root
+  > .MuiInput-colorSecondary.MuiInput-underline:not(.Mui-error)::after {
+  @apply border-b border-white;
+}
+.MuiTextField-root
+  > .MuiInput-colorSecondary.MuiInput-underline:hover:not(.Mui-disabled):not(.Mui-error)::before {
+  @apply border-b-2 border-white;
 }
 
 /* HELPER */
 .MuiTextField-root > .MuiFormHelperText-root {
+  @apply text-black text-2xs italic;
+}
+.MuiTextField-root > .MuiFormHelperText-root.MuiFormLabel-colorSecondary {
   @apply text-white text-2xs italic;
 }
 
 /* ICONS */
 .MuiTextField-root svg {
+  @apply text-black fill-current;
+}
+
+.MuiTextField-root .MuiInputBase-colorSecondary svg {
   @apply text-white fill-current;
 }

@@ -1,7 +1,6 @@
 // React libs
 import React, { FC } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import { Modal } from '@material-ui/core';
 // Components
 import BaseModale from '../BaseModale/BaseModale';
@@ -16,9 +15,6 @@ const ConfirmModale: FC<Types.IProps> = ({
   isOpened,
   message,
 }) => {
-  // Variables
-  const { t } = useTranslation(['common']);
-
   // Renders
   const getContent = () => (
     <div>
@@ -31,14 +27,14 @@ const ConfirmModale: FC<Types.IProps> = ({
           size='large'
           onClick={() => handleClose(id, false)}
         >
-          {t('common:modales.confirm.cancel')}
+          Annuler
         </Button>
         <Button
           variant='text'
           size='large'
           onClick={() => handleClose(id, true)}
         >
-          {t('common:modales.confirm.confirm')}
+          Confirmer
         </Button>
       </div>
     </div>
@@ -48,7 +44,7 @@ const ConfirmModale: FC<Types.IProps> = ({
       <div>
         <BaseModale
           content={getContent()}
-          title={t('common:modales.confirm.title')}
+          title='Demande de confirmatio'
           size='small'
         />
       </div>

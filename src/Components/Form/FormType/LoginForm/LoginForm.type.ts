@@ -1,8 +1,9 @@
-import { ComponentProps } from 'react';
+// Types
+import { IBaseFormType } from '../FormType.type';
 
 export interface IFormValues {
   email: string;
   password: string;
 }
 
-export interface IProps extends ComponentProps<'div'> {}
+export interface IProps extends IBaseFormType<IFormValues> {}

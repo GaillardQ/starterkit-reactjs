@@ -23,8 +23,8 @@ const RadioGroup: FC<Types.IProps> = ({
 
   const customClasses = {
     root: '',
-    colorPrimary: 'text-orange-300', // example
-    colorSecondary: 'text-pink-500', // example
+    colorPrimary: 'text-gray-700',
+    colorSecondary: 'text-red-500',
   };
 
   const customField = {

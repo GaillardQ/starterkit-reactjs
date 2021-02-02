@@ -4,11 +4,12 @@ import React, { FC } from 'react';
 import BaseLayout from '../../Components/Layout/BaseLayout/BaseLayout';
 // Components
 import Example from '../../Components/Example/Example';
+import Typography from '../../Components/UiKit/Typography/Typography';
 // Type
 import * as Types from './ExampleScene.type';
 
 const ExampleScene: FC<Types.IProps> = () => (
-  <BaseLayout className='bg-gray-900 text-white'>
+  <BaseLayout>
     <Typography variant='h1' component='h1'>
       EXAMPLE PAGE
     </Typography>

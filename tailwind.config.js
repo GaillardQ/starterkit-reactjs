@@ -6,32 +6,6 @@ module.exports = {
     extend: {
       colors: {
         'white-4': 'rgba(255, 255, 255, 0.04)',
-        blue: {
-          100: '#ebf8ff',
-          200: '#bee3f8',
-          300: '#90cdf4',
-          400: '#63b3ed',
-          500: '#4299e1',
-          600: '#3182ce',
-          700: '#2b6cb0',
-          800: '#2c5282',
-          900: '#2a4365',
-          1000: '#27293d',
-          1500: '#1d8cf8',
-        },
-        orange: {
-          100: '#fffaf0',
-          200: '#feebc8',
-          300: '#fbd38d',
-          400: '#f6ad55',
-          475: '#ee581e', //color-primary-main-b-full
-          '475-60': 'rgba(238, 88, 30, 0.6)', //color-primary-main-b-opacity-60
-          500: '#ed8936',
-          600: '#dd6b20',
-          700: '#c05621',
-          800: '#9c4221',
-          900: '#7b341e',
-        },
         purple: {
           100: '#faf5ff',
           200: '#e9d8fd',
@@ -42,8 +16,6 @@ module.exports = {
           700: '#6b46c1',
           800: '#553c9a',
           900: '#44337a',
-          1400: '#1e1e2f',
-          1450: '#1e1e24',
         },
       },
       fontFamily: {
@@ -105,6 +77,7 @@ module.exports = {
     backgroundColor: ['disabled'],
     fill: ['svg'],
     textColor: ['svg'],
+    opacity: ['disabled'],
   },
   plugins: [
     plugin(function({ addVariant, e }) {

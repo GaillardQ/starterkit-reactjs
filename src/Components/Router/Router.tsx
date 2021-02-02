@@ -8,7 +8,7 @@ import ErrorScene from '../../Pages/Error/ErrorScene';
 import LoginScene from '../../Pages/Login/LoginScene';
 import LogguedScene from '../../Pages/Loggued/LogguedScene'; // example
 // Services
-import LocalStorage from '../../Network/Service/Storage/LocalStorage';
+import LocalStorage from '../../Network/Services/Storage/LocalStorage';
 // Common
 import Common from '../../Resources/Common';
 

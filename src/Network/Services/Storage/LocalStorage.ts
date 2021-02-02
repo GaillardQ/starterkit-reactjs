@@ -2,7 +2,7 @@ export default class LocalStorage {
   static keys = {
     access_token: 'access_token',
     expiration_datetime: 'expiration_datetime',
-    login: 'login', //example
+    user: 'user', //example
   };
 
   static get(key: string): any {
