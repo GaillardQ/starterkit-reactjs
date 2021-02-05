@@ -1,21 +1,24 @@
-# SETUP
+# StarterKit ReactJS
 
-### `yarn install`
-
-Installs dependencies
-
-### `yarn run dev`
-
-Runs the app
-
-### Change project name/config in Jenkins files
-
-- Make a search on "StarterKit-ReactJS" and replace it with your project name
+This is more than a starter kit : it provides an architecture to quickly start a project, but also tools to quickly develop ReactJS applications.
 
 <br />
 <br />
 
-# MAIN DEPENDENCIES
+## SETUP
+
+### - Install dependencies : `yarn install`
+
+### - Set .env file : `cp env/.env.local .env`
+
+### - Configure SonarQube file
+
+### - Run the app : `yarn run start`
+
+<br />
+<br />
+
+## MAIN DEPENDENCIES
 
 ### Material-ui
 
@@ -36,10 +39,9 @@ Runs the app
 <br />
 <br />
 
-# TODO
+## TODO
 
-### - Composant de table
-
-### - Fields
-
-- Voir pour reprendre le submitOnChange de Wide également
+- Own component library
+- Set i18next for translations
+- Check https://react-hook-form.com/ and replace Formik if better
+- Gitlab-ci exemple to build app and deliver on Heroku

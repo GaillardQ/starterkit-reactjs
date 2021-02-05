@@ -1,8 +1,9 @@
 {
-  "name": "happy-fit-planner",
-  "homepage": "http://happy-fit-planner.herokuapp.com/",
-  "version": "0.1.0",
-  "private": true,
+  "name": "starterkit-nodejs",
+  "author": "Quentin Gaillard",
+  "version": "1.1.1",
+  "private": false,
+  "license": "MIT",
   "dependencies": {
     "@date-io/moment": "1.x",
     "@material-ui/core": "^4.9.5",
