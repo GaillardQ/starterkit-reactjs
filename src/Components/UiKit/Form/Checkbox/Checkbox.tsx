@@ -25,8 +25,7 @@ const Checkbox: FC<Types.IProps> = ({
   const customField = {
     ...field,
     onClick: (e: any) => {
-      const val = (e.target.value || '').replace(/\s+/gi, ' ');
-      form.setFieldValue(field.name, val.trim());
+      form.setFieldValue(field.name, !(e.target.value === 'true'));
     },
   };
   return (
