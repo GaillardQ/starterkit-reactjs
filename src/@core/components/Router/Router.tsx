@@ -2,7 +2,7 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 // @core
-import { IModuleRouter } from "@core/models/Module.type";
+import type { IModuleRouter } from "@core/models/Module.type";
 import type { Route as RouteType } from "@core/models/Route.type";
 
 interface TProps {
@@ -22,7 +22,7 @@ const RouterComponent: FC<TProps> = (props) => {
 						<Route
 							key={module.name}
 							path={`/${module.navigation.url}`} 
-							element={module.component}
+							element={<module.component />}
 						>
 							{
 								Object.keys(module.routes).map(key2 => {
@@ -31,7 +31,7 @@ const RouterComponent: FC<TProps> = (props) => {
 										<Route 
 											key={`${module.name}-${route.name}`}
 											path={`${module.navigation.url}/${route.path}`}
-											element={route.component}
+											element={<route.component />}
 										/>
 									)
 								})

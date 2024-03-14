@@ -1,7 +1,6 @@
 // Misc libs
 import { FC } from "react";
 // @core
-import type { TPageProps } from "@core/models/Page.type";
 import type { Route } from "@core/models/Route.type";
 import type { User } from "@core/models/User.type";
 
@@ -16,7 +15,7 @@ export interface IModuleRestriction {
 }
 
 export interface IModuleRouter {
-	component: FC<TPageProps>;
+	component: () => JSX.Element
 	context?: FC;
 	name: string;
 	navigation: IModuleNavigation;

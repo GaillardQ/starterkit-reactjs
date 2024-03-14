@@ -1,25 +1,20 @@
-// Misc libs
-import {
-	FC,
-	Fragment
-} from "react";
 // @core
-import type { TPageProps } from "@core/models/Page.type";
+import EmptyComponent from "@core/components/Router/EmptyComponent";
 
 interface IRoute {
-	component: FC<TPageProps>;
+	component: () => JSX.Element;
 	name: string;
 	path: string;
 }
 
 export class Route implements IRoute {
-	public component!: FC<TPageProps>;
+	public component!: () => JSX.Element;
 	public name!: string;
 	public path!: string;
 
 	static Empty(): Route {
 		return new Route({
-			component: Fragment,
+			component: EmptyComponent,
 			name: '',
 			path: '',
 		})

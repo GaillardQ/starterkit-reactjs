@@ -14,9 +14,10 @@ This is more than a starter kit : it provides an architecture to quickly start a
 
 ## TODO
 
- - Gestion taille/style UiTypography
  - Ajout router (ReactRouter ?)
- - Ajout d'une page de test
+	- ajout méthode generation URL
+	- ajout route par défaut
+ - Gestion taille/style UiTypography
  - Ajout composant layout
  - Ajout composant bouton
  - Ajout couche network
