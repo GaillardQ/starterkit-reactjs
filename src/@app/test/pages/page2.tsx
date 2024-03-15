@@ -1,5 +1,9 @@
+// Misc libs
+import { useNavigate } from 'react-router-dom';
+// @app
+import { moduleRoute as routesTest } from '@app/test/resources/misc/Router'
 // @core
-import '@core/resources/assets/css/index.css'
+import '@core/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography'
 import UiElement from '@ui/components/layout/Element/UiElement'
@@ -7,12 +11,14 @@ import UiElement from '@ui/components/layout/Element/UiElement'
 const Page2 = () => {
 
 	// Hooks
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	
 	// Handlers
 	const GoToPage1 = () => {
-		// navigate(moduleRoute.routes.Page1)
-		console.log('navigate')
+		navigate(routesTest.routes.Page1.uri());
+	}
+	const GoToSubPage2 = () => {
+		navigate(routesTest.routes.Page2.childs!.Subpage.uri());
 	}
 
 	return (
@@ -26,7 +32,11 @@ const Page2 = () => {
 				<UiTypography variant='p'>{"This one's under construction, but in the meantime, here's some reading material."}</UiTypography>
 			</UiElement>
 
-			<button onClick={() => GoToPage1()}>TEST</button>
+			
+			<UiElement className="flex gap-x-2">
+				<button onClick={() => GoToPage1()}>Page1</button>
+				<button onClick={() => GoToSubPage2()}>SubPage2</button>
+			</UiElement>
 		</UiElement>
 	)
 }

@@ -32,7 +32,20 @@ const RouterComponent: FC<TProps> = (props) => {
 											key={`${module.name}-${route.name}`}
 											path={`${module.navigation.url}/${route.path}`}
 											element={<route.component />}
-										/>
+										>
+											{
+												route.childs && Object.keys(route.childs).map(key3 => {
+													const route2: RouteType = route.childs![key3];
+													return (
+														<Route 
+															key={`${module.name}-${route.name}-${route2.name}`}
+															path={route2.uri()}
+															element={<route2.component />}
+														/>
+													)
+												})
+											}
+										</Route>
 									)
 								})
 							}
