@@ -1,14 +1,13 @@
 // @app
+import PageComponent from "@app/common/components/PageComponent";
 import Page1 from "@app/test/pages/page1";
 import Page2 from "@app/test/pages/page2";
 import SubPage2 from "@app/test/pages/subpage2";
 // @core
-import EmptyComponent from "@core/components/Router/EmptyComponent";
 import type { IModuleRouter } from "@core/models/Module.type";
 import { Route } from "@core/models/Route.type";
 
 export const moduleRoute: IModuleRouter = {
-	component: EmptyComponent,
 	name: "test",
 	navigation: {
 		slug: '/test/*',
@@ -22,19 +21,21 @@ export const moduleRoute: IModuleRouter = {
 			path: 'page1'
 		}),
 		Page2: new Route({
-			component: EmptyComponent,
+			component: PageComponent,
 			module: 'test',
 			name: 'page2',
-			path: 'page2',
+			path: 'page2/:name',
 			childs: {
 				Home: new Route({
 						module: 'test',
-						path: '/',
+						name: 'home',
+						path: '',
 						component: Page2
 				}),
 				Subpage: new Route({
 						module: 'test',
-						path: '/subpage',
+						name: 'subpage',
+						path: 'subpage/:id',
 						component: SubPage2
 				}),
 			}

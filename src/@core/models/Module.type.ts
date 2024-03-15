@@ -15,7 +15,6 @@ export interface IModuleRestriction {
 }
 
 export interface IModuleRouter {
-	component: () => JSX.Element
 	context?: FC;
 	name: string;
 	navigation: IModuleNavigation;

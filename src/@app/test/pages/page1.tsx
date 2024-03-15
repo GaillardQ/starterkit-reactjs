@@ -1,6 +1,7 @@
 // Misc libs
 import { useNavigate } from 'react-router-dom';
 // @app
+import PageComponent from '@app/common/components/PageComponent';
 import { moduleRoute as routesTest } from '@app/test/resources/misc/Router'
 // @core
 import '@core/resources/assets/css/index.css';
@@ -15,11 +16,11 @@ const Page1 = () => {
 	
 	// Handlers
 	const GoToPage2 = () => {
-		navigate(routesTest.routes.Page2.uri());
+		navigate(routesTest.routes.Page2.uri({'name': 'francis'}));
 	}
 
 	return (
-		<UiElement className='flex flex-col gap-y-4'>
+		<PageComponent>
 			<UiTypography variant="h1">
 				PAGE 1
 			</UiTypography>
@@ -32,7 +33,7 @@ const Page1 = () => {
 			<UiElement className="flex gap-x-2">
 				<button onClick={() => GoToPage2()}>Page2</button>
 			</UiElement>
-		</UiElement>
+		</PageComponent>
 	)
 }
 

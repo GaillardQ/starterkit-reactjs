@@ -1,8 +1,10 @@
+// Misc libs
+import { ReactNode } from "react";
 // @core
-import EmptyComponent from "@core/components/Router/EmptyComponent";
+import EmptyComponent from "@core/components/EmptyComponent";
 
 interface IRoute {
-	component: () => JSX.Element;
+	component: (props: IPageProps) => JSX.Element;
 	name: string;
 	path: string;
 	module: string;
@@ -12,8 +14,10 @@ interface IRoute {
 
 const matcher = /^:(.+)/;
 
+export interface IPageProps { children?: ReactNode }
+
 export class Route implements IRoute {
-	public component!: () => JSX.Element;
+	public component!: (props: IPageProps) => JSX.Element;
 	public name!: string;
 	public path!: string;
 	public module!: string;
@@ -53,7 +57,7 @@ export class Route implements IRoute {
 					return route.path;
 			}
 
-			return this.pathbuilder( route.parent ) + route.path;
+			return this.pathbuilder( route.parent ) + '/' + route.path;
 	}
 
 	private insertParams = (path: string, params: Record<string, unknown>, search = ''): string => {
