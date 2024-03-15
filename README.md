@@ -15,7 +15,7 @@ This is more than a starter kit : it provides an architecture to quickly start a
 ## TODO
 
  - Ajout router (ReactRouter ?)
-	- ajout méthode generation URL
+  - clean noms composants (avec ou sans le suffixe Component ?)
 	- ajout route par défaut
  - Gestion taille/style UiTypography
  - Ajout composant layout
