@@ -19,7 +19,7 @@ const Details = () => {
 	}
 	
 	const GoToCatalog = () => {
-		navigate(routesTest.routes.Biere.uri());
+		navigate(routesTest.routes.Bieres.uri());
 	}
 
 	return (

@@ -15,7 +15,7 @@ const Home = () => {
 	
 	// Handlers
 	const GoToBeerPart = () => {
-		navigate(routesTest.routes.Biere.uri());
+		navigate(routesTest.routes.Bieres.uri());
 	}
 
 	return (
