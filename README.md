@@ -16,7 +16,6 @@ This is more than a starter kit : it provides an architecture to quickly start a
 
  - Ajout router (ReactRouter ?)
   - clean noms composants (avec ou sans le suffixe Component ?)
-	- ajout route par défaut
  - Gestion taille/style UiTypography
  - Ajout composant layout
  - Ajout composant bouton

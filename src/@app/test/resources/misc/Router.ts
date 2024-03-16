@@ -1,8 +1,8 @@
 // @app
 import PageComponent from "@app/common/components/PageComponent";
-import Page1 from "@app/test/pages/page1";
-import Page2 from "@app/test/pages/page2";
-import SubPage2 from "@app/test/pages/subpage2";
+import Catalog from "@app/test/pages/bieres/catalog";
+import Details from "@app/test/pages/bieres/details";
+import Home from "@app/test/pages/home";
 // @core
 import type { IModuleRouter } from "@core/models/Module.type";
 import { Route } from "@core/models/Route.type";
@@ -14,29 +14,29 @@ export const moduleRoute: IModuleRouter = {
 		url: '/test'
 	},
 	routes: {
-		Page1: new Route({
-			component: Page1,
+		Home: new Route({
+			component: Home,
 			module: 'test',
-			name: 'page1',
-			path: 'page1'
+			name: 'home',
+			path: ''
 		}),
-		Page2: new Route({
+		Bieres: new Route({
 			component: PageComponent,
 			module: 'test',
-			name: 'page2',
-			path: 'page2/:name',
+			name: 'bieres',
+			path: 'bieres',
 			childs: {
-				Home: new Route({
+				Catalog: new Route({
 						module: 'test',
-						name: 'home',
+						name: 'catalog',
 						path: '',
-						component: Page2
+						component: Catalog
 				}),
-				Subpage: new Route({
+				Details: new Route({
 						module: 'test',
-						name: 'subpage',
-						path: 'subpage/:id',
-						component: SubPage2
+						name: 'details',
+						path: 'details/:id',
+						component: Details
 				}),
 			}
 		})

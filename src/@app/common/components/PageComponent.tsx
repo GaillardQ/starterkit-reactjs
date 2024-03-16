@@ -7,12 +7,12 @@ import type { IPageProps } from "@core/models/Route.type";
 import LayoutComponent from "./LayoutComponent";
 
 const PageComponent = ({children}: IPageProps) => (
-  <PageBaseComponent>
-    <LayoutComponent>
-      { children }
-      <Outlet />
-    </LayoutComponent>
-  </PageBaseComponent>
+	<PageBaseComponent>
+		<LayoutComponent>
+			{ children }
+			<Outlet />
+		</LayoutComponent>
+	</PageBaseComponent>
 );
 
 export default PageComponent;
