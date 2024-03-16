@@ -1,10 +1,8 @@
-// Misc libs
-import { FC } from 'react';
 // @ui
 import IUiTypography from '@ui/components/dataDisplay/Typography/UiTypography.type';
 import UiElement from '@ui/components/layout/Element/UiElement';
 
-const UiTypography: FC<IUiTypography> = (props) => {
+const UiTypography = (props: IUiTypography) => {
 	// Variables
 	const {
 		className = "",

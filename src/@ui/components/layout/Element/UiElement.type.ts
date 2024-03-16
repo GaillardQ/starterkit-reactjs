@@ -1,5 +1,5 @@
 // @core
-import { IDefaultComponent } from "@core/resources/types/Common.type";
+import { IDefaultComponent } from "@core/models/Component.type";
 // @ui
 import { TSize } from "@ui/resources/type/Common.type";
 

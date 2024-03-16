@@ -1,10 +1,10 @@
 // Misc libs
-import { FC, Fragment } from 'react';
+import { Fragment } from 'react';
 // @ui
 import IUiElement from '@ui/components/layout/Element/UiElement.type';
 
 
-const UiElement: FC<IUiElement> = (props) => {
+const UiElement = (props: IUiElement) => {
 	// Variables
 	const {
 		className = "", 
@@ -53,11 +53,11 @@ const UiElement: FC<IUiElement> = (props) => {
                 xlarge: 'p-8'
             },
             page: {
-                xsmall: 'p-1',
-                small: 'p-2',
-                medium: 'p-4',
-                large: 'p-6',
-                xlarge: 'p-8'
+                xsmall: '',
+                small: '',
+                medium: '',
+                large: '',
+                xlarge: ''
             },
         };
         return paddingClasses[variant][size];
@@ -67,7 +67,7 @@ const UiElement: FC<IUiElement> = (props) => {
         const otherClasses = {
             default: "",
             container: "",
-            page: "h-screen overflow-auto",
+            page: "h-screen overflow-auto w-screen",
         };
         return otherClasses[variant];
     };
