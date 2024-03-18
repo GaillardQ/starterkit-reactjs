@@ -1,15 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // Misc libs
 import type { LogoutOptions } from '@auth0/auth0-react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { TWsException, TWsExceptionList } from '@core/models/Error.type';
 import { TCallParams, TUrlUpdate, WsDataModel } from '@core/models/Network.type';
 import useLocalStorage, { ILocalStorageProviderReturn } from '@core/services/LocalStoragService';
-import { compare } from 'fast-json-patch';
-import {
-	filter,
-	find,
-	map
-} from 'lodash';
+import { Operation, ReplaceOperation, compare } from 'fast-json-patch';
 import {
 	useEffect,
 	useState
@@ -53,6 +49,7 @@ export type TCallReturn<T = undefined> = WsDataModel<T> & {
     reset?: () => void;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 type TNotLoggedCb = (options?: LogoutOptions | undefined) => void;
 
 const getFormData =
@@ -108,16 +105,19 @@ const getHeaders =
 
 const getUrl = (url: string, endpointUpdates: TUrlUpdate[] = [], urlParams: TUrlUpdate[] = []): string => {
 
-    const params = filter(url.split(/[&?]/), (element) => find(endpointUpdates, (param) =>
-        (element.replace(/.*=/, '') === param.key) && param.newValue?.toString()));
+    const params = url.split(/[&?]/)
+        .filter(element =>
+            endpointUpdates
+                .find(param => (element.replace(/.*=/, '') === param.key) && param.newValue?.toString())
+        )
 
     const cleanedURL    = `${url.replace(/\?.*/, '')}${params.length ? `?${params.join('&')}` : ''}`;
-    const URLParams     = `${urlParams.length ? `?${map(urlParams, (params) => `${params.key}=${params.newValue}`).join('&')}` : ''}`;
+    const URLParams     = `${urlParams.length ? `?${urlParams.map((params) => `${params.key}=${params.newValue}`).join('&')}` : ''}`;
     const URL           = [ cleanedURL, URLParams ].join('');
 
     return endpointUpdates
-        .reduce((newUrl: string, update: TUrlUpdate) => newUrl.replace(update.key, update.newValue?.toString() || ''), URL)
-        .replace('[GATEWAY]', window.__ENV.REACT_APP_YEAP_API_GATEWAY_URL);
+        .reduce((newUrl: string, update: TUrlUpdate) => newUrl.replace(update.key, update.newValue?.toString() ?? ''), URL)
+        .replace('[GATEWAY]', (import.meta.env.VITE_API_URI as string));
 };
 
 const useCallUrl = <T>(params: ICallUrlParams): TCallReturn<T> => {
@@ -137,7 +137,7 @@ const useCallUrl = <T>(params: ICallUrlParams): TCallReturn<T> => {
         if(wsData?.isExecuted){
             setWsData({ ...wsData, isExecuted: false });
         }
-    }, [wsData?.isExecuted]);
+    }, [wsData]);
 
     // Actions
     const fetchData =
@@ -200,15 +200,12 @@ const useCallUrl = <T>(params: ICallUrlParams): TCallReturn<T> => {
                     cache: 'default',
                 };
 
-                const getBodyPatch = (): string =>{
-                    const inputs = compare(origin as Record<string, unknown>, data as Record<string, unknown>);
-                    const patcher = filter(inputs, (input) => input.op === 'replace');
-                    return JSON.stringify(
-                        map(patcher, (input: Record<string, unknown>) => ({
-                            ...input,
-                            value: `${input.value as string}`
-                        }))
-                    );
+                const getBodyPatch = (): string => {
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+                    const inputs = compare(origin as Record<string, unknown>, data as Record<string, unknown>) as Operation[];
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                    const patcher = inputs.filter((input) => input.op === 'replace') as ReplaceOperation<string>[];
+                    return JSON.stringify(patcher);
                 };
 
                 const body = data ?
@@ -318,7 +315,9 @@ const handleErrors =
             if (response && response.status === 401) {
                 storageDelete(access_token);
                 notLoggedCb({
-                    returnTo: window.location.origin
+                    logoutParams: {
+                        returnTo: window.location.origin
+                    }
                 });
             }
             return response.status ?? 1;
@@ -329,6 +328,7 @@ const handleErrors =
 const useNetworkProvider =
     (): INetworkProviderReturn => {
         // Hooks
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         const { logout } = useAuth0();
         const localStorageProvider = useLocalStorage({access_token: 'access_token'});
 
