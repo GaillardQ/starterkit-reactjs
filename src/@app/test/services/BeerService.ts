@@ -2,13 +2,13 @@
 import useNetworkProvider   from '@core/providers/NetworkProvider';
 import type { TCallReturn } from '@core/providers/NetworkProvider';
 
-type TBiereService = {
+type TBeerService = {
     useGetCatalog: () => TCallReturn<unknown[]>;
 }
 
 const rootPath = '';
 
-const useBiereService = (): TBiereService => {
+const useBeerService = (): TBeerService => {
 
     // Hooks
     const { useGet } = useNetworkProvider();
@@ -25,4 +25,4 @@ const useBiereService = (): TBiereService => {
     };
 };
 
-export default useBiereService;
+export default useBeerService;

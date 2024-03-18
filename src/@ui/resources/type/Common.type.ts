@@ -1,1 +1,1 @@
-export type TSize = "xsmall" | "small" | "medium" | "large" | "xlarge";
+export type TSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';

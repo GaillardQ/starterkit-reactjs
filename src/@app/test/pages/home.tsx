@@ -9,32 +9,32 @@ import '@core/resources/assets/css/index.css';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';
 
-const Home = () => {
-	// Hooks
-	const navigate = useNavigate();
-	
-	// Handlers
-	const GoToBeerPart = () => {
-		navigate(routesTest.routes.Bieres.uri());
-	}
+const Home = (): JSX.Element => {
+    // Hooks
+    const navigate = useNavigate();
 
-	return (
-		<PageComponent>
-			<UiTypography variant="h1">
-				Accueil
-			</UiTypography>
+    // Handlers
+    const GoToBeerPart = (): void => {
+        navigate(routesTest.routes.Bieres.uri());
+    };
 
-			<UiElement className="flex flex-col gap-y-4">
-				<UiTypography variant='p'>
-					{'Vous êtes sur la page d\'accueil du module de test du StaterKit.'}
-				</UiTypography>
-			</UiElement>
+    return (
+        <PageComponent>
+            <UiTypography variant="h1">
+							Accueil
+            </UiTypography>
 
-			<UiElement className="flex gap-x-2">
-				<button onClick={() => GoToBeerPart()}>Une bière ?</button>
-			</UiElement>
-		</PageComponent>
-	)
-}
+            <UiElement className="flex flex-col gap-y-4">
+                <UiTypography variant='p'>
+                    { 'Vous êtes sur la page d\'accueil du module de test du StaterKit.' }
+                </UiTypography>
+            </UiElement>
+
+            <UiElement className="flex gap-x-2">
+                <button onClick={ () => GoToBeerPart() }>Une bière ?</button>
+            </UiElement>
+        </PageComponent>
+    );
+};
 
 export default Home;

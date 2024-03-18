@@ -1,6 +1,6 @@
 // Misc libs
-import UiElement from "@ui/components/layout/Element/UiElement";
+import UiElement from '@ui/components/layout/Element/UiElement';
 
-const NoMatchComponent = () => <UiElement>URL INCONNUE</UiElement>;
+const NoMatchComponent = (): JSX.Element => <UiElement>URL INCONNUE</UiElement>;
 
 export default NoMatchComponent;

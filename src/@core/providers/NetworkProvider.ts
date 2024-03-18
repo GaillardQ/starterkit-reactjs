@@ -1,14 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 // Misc libs
 import type { LogoutOptions } from '@auth0/auth0-react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { TWsException, TWsExceptionList } from '@core/models/Error.type';
-import { TCallParams, TUrlUpdate, WsDataModel } from '@core/models/Network.type';
-import useLocalStorage, { ILocalStorageProviderReturn } from '@core/services/LocalStoragService';
-import { Operation, ReplaceOperation, compare } from 'fast-json-patch';
+import type { TWsException, TWsExceptionList } from '@core/models/Error.type';
+import type { TCallParams, TUrlUpdate } from '@core/models/Network.type';
+import { WsDataModel } from '@core/models/Network.type';
+import type { ILocalStorageProviderReturn } from '@core/services/LocalStoragService';
+import useLocalStorage from '@core/services/LocalStoragService';
+import type { ReplaceOperation } from 'fast-json-patch';
+import { compare } from 'fast-json-patch';
 import {
-	useEffect,
-	useState
+    useEffect,
+    useState
 } from 'react';
 
 export type TStorageKeys = 'access_token';
@@ -49,7 +51,6 @@ export type TCallReturn<T = undefined> = WsDataModel<T> & {
     reset?: () => void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
 type TNotLoggedCb = (options?: LogoutOptions | undefined) => void;
 
 const getFormData =
@@ -106,10 +107,10 @@ const getHeaders =
 const getUrl = (url: string, endpointUpdates: TUrlUpdate[] = [], urlParams: TUrlUpdate[] = []): string => {
 
     const params = url.split(/[&?]/)
-        .filter(element =>
+        .filter((element) =>
             endpointUpdates
-                .find(param => (element.replace(/.*=/, '') === param.key) && param.newValue?.toString())
-        )
+                .find((param) => (element.replace(/.*=/, '') === param.key) && param.newValue?.toString())
+        );
 
     const cleanedURL    = `${url.replace(/\?.*/, '')}${params.length ? `?${params.join('&')}` : ''}`;
     const URLParams     = `${urlParams.length ? `?${urlParams.map((params) => `${params.key}=${params.newValue}`).join('&')}` : ''}`;
@@ -201,9 +202,7 @@ const useCallUrl = <T>(params: ICallUrlParams): TCallReturn<T> => {
                 };
 
                 const getBodyPatch = (): string => {
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-                    const inputs = compare(origin as Record<string, unknown>, data as Record<string, unknown>) as Operation[];
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                    const inputs = compare(origin as Record<string, unknown>, data as Record<string, unknown>);
                     const patcher = inputs.filter((input) => input.op === 'replace') as ReplaceOperation<string>[];
                     return JSON.stringify(patcher);
                 };
@@ -328,9 +327,8 @@ const handleErrors =
 const useNetworkProvider =
     (): INetworkProviderReturn => {
         // Hooks
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
         const { logout } = useAuth0();
-        const localStorageProvider = useLocalStorage({access_token: 'access_token'});
+        const localStorageProvider = useLocalStorage({ access_token: 'access_token' });
 
         return {
             useDelete: <T>(params: ICallParams): TCallReturn<T> =>

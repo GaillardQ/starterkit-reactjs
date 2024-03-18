@@ -17,6 +17,14 @@ export default defineConfig({
     server: {
         port: 8080,
         host: 'localhost',
-        open: true
+        open: true,
+        proxy: {
+            '/beers/api': {
+                target: 'https://api.punkapi.com/v2/',
+                changeOrigin: true,
+                secure: false,
+                rewrite: (path) => path.replace('/happyfox', '/api')
+            }
+        }
     },
 });

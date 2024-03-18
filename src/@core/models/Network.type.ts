@@ -19,16 +19,16 @@ export type TDataProviderReturn<returnType = undefined> = TCallReturn<returnType
 };
 
 export interface TCallParams {
-data?: unknown;
-origin?: unknown;
-forcedURL?: string;
-throwIfError?: boolean;
-urlParams?: TUrlUpdate[];
-isFakeDataCalled?: boolean;
-callResponseDelay?: number;
-endpointUpdates?: TUrlUpdate[];
-isFormData?: boolean | undefined;
-callHeaders?: Record<string, unknown>;
+  data?: unknown;
+  origin?: unknown;
+  forcedURL?: string;
+  throwIfError?: boolean;
+  urlParams?: TUrlUpdate[];
+  isFakeDataCalled?: boolean;
+  callResponseDelay?: number;
+  endpointUpdates?: TUrlUpdate[];
+  isFormData?: boolean | undefined;
+  callHeaders?: Record<string, unknown>;
 }
 
 export class WsDataModel<T = undefined> {
