@@ -1,7 +1,7 @@
 // @app
 import PageComponent from '@app/common/components/PageComponent';
-import Catalog from '@app/test/pages/beer/catalog';
-import Details from '@app/test/pages/beer/details';
+import Catalog from '@app/test/pages/pokemon/catalog';
+import Details from '@app/test/pages/pokemon/details';
 import Home from '@app/test/pages/home';
 // @core
 import type { IModuleRouter } from '@core/models/Module.type';
@@ -20,11 +20,11 @@ export const moduleRoute: IModuleRouter = {
             name: 'home',
             path: ''
         }),
-        Bieres: new Route({
+        Pokemon: new Route({
             component: PageComponent,
             module: 'test',
-            name: 'bieres',
-            path: 'bieres',
+            name: 'fixture',
+            path: 'fixture',
             childs: {
                 Catalog: new Route({
                     module: 'test',

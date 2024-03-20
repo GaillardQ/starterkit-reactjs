@@ -8,7 +8,7 @@ import UiElement from '@ui/components/layout/Element/UiElement';
 
 const App = (): JSX.Element => (
     <UiElement variant='page'>
-        <RouterComponent modules={ { test: routesTest } }/>
+        <RouterComponent modules={ { test: routesTest } } />
     </UiElement>
 );
 

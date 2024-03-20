@@ -19,11 +19,11 @@ export default defineConfig({
         host: 'localhost',
         open: true,
         proxy: {
-            '/beers/api': {
-                target: 'https://api.punkapi.com/v2/',
+            '/pokemon-api': {
+                target: 'https://pokeapi.co/api/v2',
                 changeOrigin: true,
                 secure: false,
-                rewrite: (path) => path.replace('/happyfox', '/api')
+                rewrite: (path) => path.replace('/pokemon-api', '/')
             }
         }
     },

@@ -1,7 +1,8 @@
 // Misc libs
 import { useNavigate } from 'react-router-dom';
-// @app
+// @app/common
 import PageComponent from '@app/common/components/PageComponent';
+// @app/test
 import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
 // @core
 import '@core/resources/assets/css/index.css';
@@ -14,8 +15,8 @@ const Home = (): JSX.Element => {
     const navigate = useNavigate();
 
     // Handlers
-    const GoToBeerPart = (): void => {
-        navigate(routesTest.routes.Bieres.uri());
+    const GoToPokemonPart = (): void => {
+        navigate(routesTest.routes.Pokemon.uri());
     };
 
     return (
@@ -31,7 +32,7 @@ const Home = (): JSX.Element => {
             </UiElement>
 
             <UiElement className="flex gap-x-2">
-                <button onClick={ () => GoToBeerPart() }>Une bière ?</button>
+                <button onClick={ () => GoToPokemonPart() }>Catalogue Pokemon</button>
             </UiElement>
         </PageComponent>
     );
