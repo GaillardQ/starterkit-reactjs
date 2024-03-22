@@ -9,6 +9,7 @@ import '@core/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';
+import UiButton from '@ui/components/input/UiButton';
 
 const Details = (): JSX.Element => {
     // Hooks
@@ -26,17 +27,21 @@ const Details = (): JSX.Element => {
     return (
         <PageComponent>
             <UiElement className='flex flex-col gap-y-4'>
-                <UiTypography variant="h1">
+                <UiTypography is="h1">
 					Details
                 </UiTypography>
 
                 <UiElement className="flex flex-col gap-y-4">
-                    <UiTypography variant='p'>Ceci est la page détail du Pokemon que tu as choisie.</UiTypography>
+                    <UiTypography is='p'>Ceci est la page détail du Pokemon que tu as choisie.</UiTypography>
                 </UiElement>
 
                 <UiElement className="flex gap-x-2">
-                    <button onClick={ () => GoToHome() }>Accueil</button>
-                    <button onClick={ () => GoToCatalog() }>Catalogue</button>
+                    <UiButton label="Accueil"
+                        onClick={ () => GoToHome() }
+                    />
+                    <UiButton label="Catalogue"
+                        onClick={ () => GoToCatalog() }
+                    />
                 </UiElement>
             </UiElement>
         </PageComponent>

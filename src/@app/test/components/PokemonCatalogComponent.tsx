@@ -7,6 +7,7 @@ import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
 // @ui
 import UiElement from '@ui/components/layout/Element/UiElement';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
+import UiButton from '@ui/components/input/UiButton';
 
 interface IParams {
   provider: IPokemonProvider;
@@ -53,12 +54,16 @@ const PokemonCatalogComponent = (params: IParams): JSX.Element => {
                                 <UiTypography>
                                     { b.name }
                                 </UiTypography>
-                                <button onClick={ () => GoToDetails(GetPokemonId(b.url)) }></button>
+                                <UiButton
+                                    variant='outlined'
+                                    size="xsmall"
+                                    label="Détails"
+                                    onClick={ () => GoToDetails(GetPokemonId(b.url)) }
+                                />
                             </UiElement>)
                     )
                 }
             </UiElement>
-            <button onClick={ () => provider.data.catalog.fetch({ callHeaders: { signal } }) }>REFRESH</button>
         </UiElement>
     );
 };

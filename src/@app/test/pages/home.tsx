@@ -9,6 +9,7 @@ import '@core/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';
+import UiButton from '@ui/components/input/UiButton';
 
 const Home = (): JSX.Element => {
     // Hooks
@@ -21,18 +22,21 @@ const Home = (): JSX.Element => {
 
     return (
         <PageComponent>
-            <UiTypography variant="h1">
+            <UiTypography is="h1">
 							Accueil
             </UiTypography>
 
             <UiElement className="flex flex-col gap-y-4">
-                <UiTypography variant='p'>
+                <UiTypography is='p'>
                     { 'Vous êtes sur la page d\'accueil du module de test du StaterKit.' }
                 </UiTypography>
             </UiElement>
 
             <UiElement className="flex gap-x-2">
-                <button onClick={ () => GoToPokemonPart() }>Catalogue Pokemon</button>
+                <UiButton
+                    label="Catalogue Pokemon"
+                    onClick={ () => GoToPokemonPart() }
+                />
             </UiElement>
         </PageComponent>
     );

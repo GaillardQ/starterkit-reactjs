@@ -11,6 +11,7 @@ import '@core/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';
+import UiButton from '@ui/components/input/UiButton';
 
 const Catalog = (): JSX.Element => {
 
@@ -26,19 +27,21 @@ const Catalog = (): JSX.Element => {
     return (
         <PageComponent>
             <UiElement
-                variant='container'
                 className='flex flex-col gap-y-4'
             >
-                <UiTypography variant="h1">
+                <UiTypography is="h1">
                   Catalogue Pokemon
                 </UiTypography>
 
                 <UiElement className="flex flex-col gap-y-4">
-                    <UiTypography variant='p'>{ 'Il me fallait une API pour tester la partie "réseau"' }</UiTypography>
+                    <UiTypography is='p'>{ 'Il me fallait une API pour tester la partie "réseau"' }</UiTypography>
                 </UiElement>
 
                 <UiElement className="flex gap-x-2">
-                    <button onClick={ () => GoToHome() }>Accueil</button>
+                    <UiButton
+                        label="Accueil"
+                        onClick={ () => GoToHome() }
+                    />
                 </UiElement>
 
                 <PokemonCatalogComponent provider={ pokemonProvider } />
