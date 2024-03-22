@@ -4,17 +4,17 @@ interface IUser {
 }
 
 export class User implements IUser {
-	public email!: string;
-	public name!: string;
+    public email!: string;
+    public name!: string;
 
-	static Empty(): User {
-		return new User({
-			email: '',
-			name: ''
-		})
-	}
+    static Empty(): User {
+        return new User({
+            email: '',
+            name: ''
+        });
+    }
 
-	public constructor(init?: Partial<IUser>) {
-		Object.assign(this, init);
-	}
+    public constructor(init?: Partial<IUser>) {
+        Object.assign(this, init);
+    }
 }

@@ -1,7 +1,8 @@
 // Misc libs
-import { Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Fragment } from 'react';
+// @/core
+import type { IPageProps } from '@core/models/Route.type';
 
-const EmptyComponent = () => <Fragment><Outlet /></Fragment>;
+const EmptyComponent = ({ children }: IPageProps): JSX.Element => <Fragment>{ children }</Fragment>;
 
 export default EmptyComponent;

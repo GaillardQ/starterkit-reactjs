@@ -1,15 +1,15 @@
 // @app
-import { moduleRoute as routesTest } from '@app/test/resources/misc/Router'
+import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
 // @core
-import RouterComponent from '@core/components/RouteComponent'
-import '@core/resources/assets/css/index.css'
+import RouterComponent from '@core/components/RouteComponent';
+import '@core/resources/assets/css/index.css';
 // @ui
-import UiElement from '@ui/components/layout/Element/UiElement'
+import UiElement from '@ui/components/layout/Element/UiElement';
 
-const App = () => (
-	<UiElement variant='page'>
-		<RouterComponent modules={{test: routesTest}}/>
-	</UiElement>
-)
+const App = (): JSX.Element => (
+    <UiElement variant='page'>
+        <RouterComponent modules={ { test: routesTest } } />
+    </UiElement>
+);
 
-export default App
+export default App;

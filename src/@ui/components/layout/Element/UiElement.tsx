@@ -1,21 +1,20 @@
 // Misc libs
 import { Fragment } from 'react';
 // @ui
-import IUiElement from '@ui/components/layout/Element/UiElement.type';
+import type { IUiElement } from '@ui/components/layout/Element/UiElement.type';
 
+const UiElement = (props: IUiElement): JSX.Element => {
+    // Variables
+    const {
+        className = '',
+        children,
+        color = 'default',
+        size = 'medium',
+        variant = 'default'
+    } = props;
 
-const UiElement = (props: IUiElement) => {
-	// Variables
-	const {
-		className = "", 
-		children,
-		color = "default",
-		size = "medium",
-		variant = "default"
-	} = props;
-
-	// Getters
-	const getColorClasses = (): string => {
+    // Getters
+    const getColorClasses = (): string => {
         const colorClasses = {
             default: {
                 default:    '',
@@ -27,7 +26,7 @@ const UiElement = (props: IUiElement) => {
                 primary:    'bg-white',
                 secondary:  'bg-neutral-950 bg-opacity-5',
             },
-			page: {
+            page: {
                 default:    '',
                 primary:    'bg-white',
                 secondary:  'bg-neutral-950 bg-opacity-5',
@@ -63,27 +62,27 @@ const UiElement = (props: IUiElement) => {
         return paddingClasses[variant][size];
     };
 
-	const getOtherClasses = (): string => {
+    const getOtherClasses = (): string => {
         const otherClasses = {
-            default: "",
-            container: "",
-            page: "h-screen overflow-auto w-screen",
+            default: '',
+            container: '',
+            page: 'h-screen overflow-auto w-screen',
         };
         return otherClasses[variant];
     };
 
-	const getClassNames = (): string => [
-		className,
-		getColorClasses(),
-		getPaddingClasses(),
-		getOtherClasses()
-	].join(' ');
+    const getClassNames = (): string => [
+        className,
+        getColorClasses(),
+        getPaddingClasses(),
+        getOtherClasses()
+    ].join(' ');
 
-	return (
-		<div className={getClassNames()}>
-			{children && <Fragment>{children}</Fragment>}
-		</div>
-	);
-}
+    return (
+        <div className={ getClassNames() }>
+            { children && <Fragment>{ children }</Fragment> }
+        </div>
+    );
+};
 
 export default UiElement;
