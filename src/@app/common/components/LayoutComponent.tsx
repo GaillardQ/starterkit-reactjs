@@ -5,9 +5,11 @@ import UiElement from '@ui/components/layout/Element/UiElement';
 import HeaderComponent from './HeaderComponent';
 
 const LayoutComponent = ({ children }: IPageProps): JSX.Element => (
-    <UiElement>
+    <UiElement className='flex flex-col h-full overflow-hidden'>
         <HeaderComponent />
-        { children }
+        <UiElement className='flex-col flex-1 overflow-auto'>
+            { children }
+        </UiElement>
     </UiElement>
 );
 

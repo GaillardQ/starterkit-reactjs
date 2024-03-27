@@ -9,7 +9,11 @@ import UiElement from '@ui/components/layout/Element/UiElement';
 const PageComponent = ({ children }: IPageProps): JSX.Element => (
     <PageBaseComponent>
         <LayoutComponent>
-            <UiElement variant="container">
+            <UiElement
+                variant="container"
+                hasShadow={ false }
+                className='h-full'
+            >
                 { children }
             </UiElement>
         </LayoutComponent>

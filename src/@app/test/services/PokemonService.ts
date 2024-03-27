@@ -1,11 +1,13 @@
 // @app/test
-import type { PokemonList } from '@app/test/models/PokemonModel';
+import type { PokemonsList } from '@app/test/models/PokemonsListModel';
+import type { PokemonDetails } from '@app/test/models/PokemonDetailsModel';
 // @core
 import useNetworkProvider   from '@core/providers/NetworkProvider';
 import type { TCallReturn } from '@core/providers/NetworkProvider';
 
 type TPokemonService = {
-    useGetCatalog: () => TCallReturn<PokemonList>;
+    useGetCatalog: () => TCallReturn<PokemonsList>;
+    useGetDetails: () => TCallReturn<PokemonDetails>;
 }
 
 const rootPath = `${location.origin}/pokemon-api`;
@@ -20,8 +22,13 @@ const usePokemonService = (): TPokemonService => {
 
     return {
         useGetCatalog:
-            () => useGet<PokemonList>({
+            () => useGet<PokemonsList>({
                 url: `${rootPath}/pokemon`,
+                otherHeaders
+            }),
+        useGetDetails:
+            () => useGet<PokemonDetails>({
+                url: `${rootPath}/pokemon/[POKEMON_ID]`,
                 otherHeaders
             }),
     };

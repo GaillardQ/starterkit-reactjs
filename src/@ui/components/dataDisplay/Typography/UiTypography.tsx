@@ -1,5 +1,3 @@
-// Misc libs
-import cn from 'classnames';
 // @ui
 import { getTextColor } from '@ui/utils/colorLibrary';
 import type { IUiTypography } from '@ui/components/dataDisplay/Typography/UiTypography.type';
@@ -18,7 +16,6 @@ const UiTypography = (props: IUiTypography): JSX.Element => {
         ...others
     } = props;
 
-    // Getters
     const sizeMap: Record<number, string> = {
         8: 'text-8',
         10: 'text-10',
@@ -44,6 +41,38 @@ const UiTypography = (props: IUiTypography): JSX.Element => {
         medium: 'font-medium',
         semibold: 'font-semibold',
         bold: 'font-bold'
+    };
+
+    // Getters
+    const getHtmlComponentClasses = (): string => {
+        switch (is) {
+        case 'h1': return [sizeMap[32], weightMap['semibold']].join(' ');
+        case 'h2': return [sizeMap[30], weightMap['medium']].join(' ');
+        case 'h3': return [sizeMap[24], weightMap['medium']].join(' ');
+        case 'h4': return [sizeMap[20], weightMap['medium']].join(' ');
+        case 'h5': return [sizeMap[18], weightMap['medium']].join(' ');
+        case 'h6': return [sizeMap[16], weightMap['medium']].join(' ');
+        case 'div':
+        case 'p':
+        case 'span':
+        default:
+            return [ sizeMap[size], weightMap[weight]].join(' ');
+        }
+    };
+
+    const getComponentClasses = (): string => {
+        const textColor = getTextColor(color);
+        const letterSpacing = getLetterSpacing();
+        const htmlClasses = getHtmlComponentClasses();
+        return [
+            'yp-typography',
+            className,
+            letterSpacing,
+            textColor,
+            htmlClasses,
+            fontMap[font],
+            appearance.join(' ')
+        ].join(' ');
     };
 
     const getLetterSpacing = (): string => {
@@ -77,16 +106,7 @@ const UiTypography = (props: IUiTypography): JSX.Element => {
 
     return (
         <Component
-            className={ cn(
-                'yp-typography',
-                className,
-                getTextColor(color),
-                sizeMap[size],
-                fontMap[font],
-                weightMap[weight],
-                getLetterSpacing(),
-                appearance.join(' ')
-            ) }
+            className={ getComponentClasses() }
             { ...others }
         >
             { children }

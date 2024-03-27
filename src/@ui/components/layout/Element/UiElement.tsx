@@ -10,7 +10,8 @@ const UiElement = (props: IUiElement): JSX.Element => {
         children,
         color = 'default',
         size = 'medium',
-        variant = 'default'
+        variant = 'default',
+        hasShadow = true,
     } = props;
 
     // Getters
@@ -62,10 +63,37 @@ const UiElement = (props: IUiElement): JSX.Element => {
         return paddingClasses[variant][size];
     };
 
+    const getVariantClasses = (): string => {
+        const variantClasses = {
+            container: {
+                xsmall: 'rounded-sm',
+                small: 'rounded',
+                medium: 'rounded-md',
+                large: 'rounded-lg',
+                xlarge: 'rounded-xl'
+            },
+            page: {
+                xsmall: '',
+                small: '',
+                medium: '',
+                large: '',
+                xlarge: ''
+            },
+            default: {
+                xsmall: '',
+                small: '',
+                medium: '',
+                large: '',
+                xlarge: ''
+            },
+        };
+        return variantClasses[variant][size];
+    };
+
     const getOtherClasses = (): string => {
         const otherClasses = {
             default: '',
-            container: '',
+            container: hasShadow ? 'shadow-md' : '',
             page: 'h-screen overflow-auto w-screen',
         };
         return otherClasses[variant];
@@ -73,6 +101,7 @@ const UiElement = (props: IUiElement): JSX.Element => {
 
     const getClassNames = (): string => [
         className,
+        getVariantClasses(),
         getColorClasses(),
         getPaddingClasses(),
         getOtherClasses()

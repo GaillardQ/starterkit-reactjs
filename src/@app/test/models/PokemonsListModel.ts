@@ -3,21 +3,21 @@ export type TPokemon = {
   url: string;
 }
 
-interface IPokemonList {
+interface IPokemonsList {
 	count: number;
   next: string;
   previous: string;
   results: TPokemon[];
 }
 
-export class PokemonList implements IPokemonList{
+export class PokemonsList implements IPokemonsList{
     public count!: number;
     public next!: string;
     public previous!: string;
     public results!: TPokemon[];
 
-    static Empty(): PokemonList {
-        return new PokemonList({
+    static Empty(): PokemonsList {
+        return new PokemonsList({
             count: 0,
             next: '',
             previous: '',
@@ -25,7 +25,7 @@ export class PokemonList implements IPokemonList{
         });
     }
 
-    public constructor(init?: Partial<PokemonList>) {
+    public constructor(init?: Partial<PokemonsList>) {
         Object.assign(this, init);
     }
 }

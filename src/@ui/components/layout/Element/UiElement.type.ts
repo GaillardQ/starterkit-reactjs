@@ -7,4 +7,5 @@ export interface IUiElement extends IDefaultComponent{
 	variant?: 'default' | 'container' | 'page';
   color?: TColor;
   size?: TSize;
+  hasShadow?: boolean;
 }

@@ -1,21 +1,24 @@
 // Misc libs
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { capitalize } from 'lodash';
 // @app/test
-import type { IPokemonProvider } from '@app/test/providers/PokemonProvider';
 import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
+import type { PokemonsList, TPokemon } from '@app/test/models/PokemonsListModel';
+// @core
+import type { TCallReturn } from '@core/providers/NetworkProvider';
 // @ui
 import UiElement from '@ui/components/layout/Element/UiElement';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiButton from '@ui/components/input/UiButton';
 
 interface IParams {
-  provider: IPokemonProvider;
+  catalog: TCallReturn<PokemonsList>;
 }
 const PokemonCatalogComponent = (params: IParams): JSX.Element => {
 
     // Variables
-    const { provider } = params;
+    const { catalog } = params;
     const controller = new AbortController();
     const { signal } = controller;
 
@@ -24,7 +27,7 @@ const PokemonCatalogComponent = (params: IParams): JSX.Element => {
 
     // Effects
     useEffect(() => {
-        provider.data.catalog.fetch({ callHeaders: { signal } });
+        catalog.fetch({ callHeaders: { signal } });
         return () => controller.abort();
     }, []);
 
@@ -40,30 +43,33 @@ const PokemonCatalogComponent = (params: IParams): JSX.Element => {
     };
 
     return (
-        <UiElement className='flex flex-col gap-y-4'>
-            <UiElement className='flex flex-wrap gap-2'>
-                {
-                    provider.data.catalog.data?.results?.map(
-                        (b, index) => (
-                            <UiElement
-                                key={ index }
-                                variant='container'
-                                color='secondary'
-                                className='flex flex-col gap-y-2 items-center w-1/12'
-                            >
-                                <UiTypography>
-                                    { b.name }
-                                </UiTypography>
-                                <UiButton
-                                    variant='outlined'
-                                    size="xsmall"
-                                    label="Détails"
-                                    onClick={ () => GoToDetails(GetPokemonId(b.url)) }
-                                />
-                            </UiElement>)
-                    )
-                }
-            </UiElement>
+        <UiElement
+            variant="container"
+            hasShadow={ false }
+            size='xsmall'
+            className='flex flex-1 flex-wrap gap-8 items-center justify-center overflow-auto'
+        >
+            {
+                catalog.data?.results?.map(
+                    (b: TPokemon, index: number) => (
+                        <UiElement
+                            key={ index }
+                            variant='container'
+                            color='secondary'
+                            className='flex flex-col h-fit gap-y-8 items-center w-1/12'
+                        >
+                            <UiTypography>
+                                { capitalize(b.name) }
+                            </UiTypography>
+                            <UiButton
+                                variant='outlined'
+                                size="xsmall"
+                                label="Détails"
+                                onClick={ () => GoToDetails(GetPokemonId(b.url)) }
+                            />
+                        </UiElement>)
+                )
+            }
         </UiElement>
     );
 };

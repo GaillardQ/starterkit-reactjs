@@ -14,7 +14,6 @@ This is more than a starter kit : it provides an architecture to quickly start a
 
 ## TODO
 
- - Design pages de test
  - Trouver lib champs formulaire
  - Ajout lib gestion formulaire
  - Ajout @lib avc la surcouches des champs de formulaire
