@@ -7,7 +7,14 @@ import Home from '@app/test/pages/home';
 import type { IModuleRouter } from '@core/models/Module.type';
 import { Route } from '@core/models/Route.type';
 
-export const moduleRoute: IModuleRouter = {
+export interface ITestModuleRouter extends IModuleRouter {
+  routes: {
+    Home: Route;
+    Pokemon: Route;
+  }
+}
+
+export const moduleRouter: ITestModuleRouter = {
     name: 'test',
     navigation: {
         slug: '/test/*',

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { capitalize } from 'lodash';
 // @app/test
-import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
+import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 import type { PokemonsList, TPokemon } from '@app/test/models/PokemonsListModel';
 // @core
 import type { TCallReturn } from '@core/providers/NetworkProvider';

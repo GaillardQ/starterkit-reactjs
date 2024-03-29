@@ -1,7 +1,7 @@
 // Misc libs
 import { useNavigate } from 'react-router-dom';
 // @app/test
-import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
+import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiButton from '@ui/components/input/UiButton';

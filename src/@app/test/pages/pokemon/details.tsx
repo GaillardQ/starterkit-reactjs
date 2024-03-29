@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // @app/common
 import PageComponent from '@app/common/components/PageComponent';
 // @app/test
-import { moduleRoute as routesTest } from '@app/test/resources/misc/Router';
+import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 // @core
 import '@core/resources/assets/css/index.css';
 // @ui
