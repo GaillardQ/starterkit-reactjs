@@ -28,7 +28,6 @@ const RouterComponent: FC<TProps> = (props): JSX.Element => {
                 const newIndex = `${index}-${key}-${route.name}`;
                 const newPath = `${path}/${route.path}`;
                 const ProtectedComponent = withAuthenticationRequired(route.component);
-                // const ProtectedComponent = route.component;
                 if (!route.childs || Object.keys(route.childs).length === 0) {
                     return (
                         <Route

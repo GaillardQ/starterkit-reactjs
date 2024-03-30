@@ -20,7 +20,7 @@ const Details = (): JSX.Element => {
 
     // Handlers
     const GoToCatalog = (): void => {
-        navigate(routesTest.routes.Pokemon.uri());
+        navigate(routesTest.routes.Catalog.uri());
     };
 
     return (

@@ -17,7 +17,7 @@ const Home = (): JSX.Element => {
 
     // Handlers
     const GoToPokemonPart = (): void => {
-        navigate(routesTest.routes.Pokemon.uri());
+        navigate(routesTest.routes.Catalog.uri());
     };
 
     return (

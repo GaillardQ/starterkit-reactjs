@@ -1,16 +1,14 @@
 // @app
-import PageComponent from '@app/common/components/PageComponent';
-import Catalog from '@app/test/pages/pokemon/catalog';
-import Details from '@app/test/pages/pokemon/details';
-import Home from '@app/test/pages/home';
+import Catalog from '@app/test/pages/catalog';
+import Details from '@app/test/pages/details';
 // @core
 import type { IModuleRouter } from '@core/models/Module.type';
 import { Route } from '@core/models/Route.type';
 
 export interface ITestModuleRouter extends IModuleRouter {
   routes: {
-    Home: Route;
-    Pokemon: Route;
+    Catalog: Route;
+    Details: Route;
   }
 }
 
@@ -21,31 +19,17 @@ export const moduleRouter: ITestModuleRouter = {
         url: '/test'
     },
     routes: {
-        Home: new Route({
-            component: Home,
+        Catalog: new Route({
             module: 'test',
-            name: 'home',
-            path: ''
+            name: 'catalog',
+            path: '',
+            component: Catalog
         }),
-        Pokemon: new Route({
-            component: PageComponent,
+        Details: new Route({
             module: 'test',
-            name: 'fixture',
-            path: 'fixture',
-            childs: {
-                Catalog: new Route({
-                    module: 'test',
-                    name: 'catalog',
-                    path: '',
-                    component: Catalog
-                }),
-                Details: new Route({
-                    module: 'test',
-                    name: 'details',
-                    path: 'details/:id',
-                    component: Details
-                }),
-            }
-        })
+            name: 'details',
+            path: 'details/:id',
+            component: Details
+        }),
     }
 };

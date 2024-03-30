@@ -33,7 +33,7 @@ const PokemonCatalogComponent = (params: IParams): JSX.Element => {
 
     // Actions
     const GoToDetails = (id: string): void => {
-        navigate(routesTest.routes.Pokemon.childs!.Details.uri({ id }));
+        navigate(routesTest.routes.Details.uri({ id }));
     };
 
     // Getters
