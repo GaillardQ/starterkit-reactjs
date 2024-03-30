@@ -18,6 +18,5 @@ This is more than a starter kit : it provides an architecture to quickly start a
  - Ajout lib gestion formulaire
  - Ajout @lib avc la surcouches des champs de formulaire
  - Ajout concept form provider (dans le provider ?)
- - Gestion authentification Auth0
 
 <br />
