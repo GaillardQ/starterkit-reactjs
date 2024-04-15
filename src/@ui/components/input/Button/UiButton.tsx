@@ -17,7 +17,7 @@ import {
     getStatusBorderColor,
     getStatusColor
 } from '@ui/utils/colorLibrary';
-import type { IUiButton } from '@ui/components/input/UiButton.type';
+import type { IUiButton } from '@ui/components/input/Button/UiButton.type';
 import type { TColors } from '@ui/utils/colorLibrary';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import type { IUiTypography } from '@ui/components/dataDisplay/Typography/UiTypography.type';

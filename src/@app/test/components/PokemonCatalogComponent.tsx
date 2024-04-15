@@ -10,7 +10,7 @@ import type { TCallReturn } from '@core/providers/NetworkProvider';
 // @ui
 import UiElement from '@ui/components/layout/Element/UiElement';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
-import UiButton from '@ui/components/input/UiButton';
+import UiButton from '@ui/components/input/Button/UiButton';
 
 interface IParams {
   catalog: TCallReturn<PokemonsList>;

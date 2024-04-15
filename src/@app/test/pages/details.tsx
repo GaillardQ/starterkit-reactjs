@@ -8,7 +8,7 @@ import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 import '@core/resources/assets/css/index.css';
 // @ui
 import UiElement from '@ui/components/layout/Element/UiElement';
-import UiButton from '@ui/components/input/UiButton';
+import UiButton from '@ui/components/input/Button/UiButton';
 import PokemonDetailsComponent from '@app/test/components/PokemonDetailsComponent';
 import usePokemonProvider from '@app/test/providers/PokemonProvider';
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { moduleRouter as routesCommon } from '@app/common/resources/misc/Router';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
-import UiButton from '@ui/components/input/UiButton';
+import UiButton from '@ui/components/input/Button/UiButton';
 import UiElement from '@ui/components/layout/Element/UiElement';
 import { useAuth0 } from '@auth0/auth0-react';
 

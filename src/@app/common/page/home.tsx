@@ -9,7 +9,7 @@ import '@core/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';
-import UiButton from '@ui/components/input/UiButton';
+import UiButton from '@ui/components/input/Button/UiButton';
 
 const Home = (): JSX.Element => {
     // Hooks
