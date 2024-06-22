@@ -1,12 +1,13 @@
 // Misc libs
+import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 // @app/common
 import { moduleRouter as routesCommon } from '@app/common/resources/misc/Router';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiButton from '@ui/components/input/Button/UiButton';
+import UiAppBar from '@ui/components/layout/AppBar/UiAppBar';
 import UiElement from '@ui/components/layout/Element/UiElement';
-import { useAuth0 } from '@auth0/auth0-react';
 
 const HeaderComponent = (): JSX.Element => {
 
@@ -27,34 +28,39 @@ const HeaderComponent = (): JSX.Element => {
     };
 
     return (
-        <UiElement
-            variant="container"
-            color='secondary'
-            className="flex items-center"
-        >
-            <UiElement className="flex-1">
-                <UiTypography
-                    weight='bold'
-                    size={ 36 }
-                >
+        <UiAppBar position="static">
+            <UiElement
+                variant="container"
+				size='medium'
+                className="flex items-center"
+            >
+                <UiElement className="flex-1">
+                    <UiTypography
+						color="white"
+                        weight='bold'
+                        size={ 30 }
+                    >
                   Starterkit - ReactJS
-                </UiTypography>
+                    </UiTypography>
+                </UiElement>
+                <UiElement className='flex items-center gap-x-2'>
+                    <UiButton
+                        variant='text'
+                        size='xlarge'
+                        icon="home"
+						color="white"
+                        onClick={ () => GoToHome() }
+                    />
+                    <UiButton
+                        variant='text'
+                        size='xlarge'
+                        icon="sign-out-alt"
+						color="white"
+                        onClick={ () => SignOut() }
+                    />
+                </UiElement>
             </UiElement>
-            <UiElement className='flex items-center gap-x-2'>
-                <UiButton
-                    variant='text'
-                    size='xlarge'
-                    icon="home"
-                    onClick={ () => GoToHome() }
-                />
-                <UiButton
-                    variant='text'
-                    size='xlarge'
-                    icon="sign-out-alt"
-                    onClick={ () => SignOut() }
-                />
-            </UiElement>
-        </UiElement>
+        </UiAppBar>
     );
 };
 
