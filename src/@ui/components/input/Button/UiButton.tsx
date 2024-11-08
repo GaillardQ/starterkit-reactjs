@@ -1,7 +1,11 @@
 // Misc libs
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { isEmpty } from 'lodash';
 // @ui
+import type { IUiButton } from '@ui/components/input/Button/UiButton.type';
+import type { TColors } from '@ui/utils/colorLibrary';
+import type { IUiTypography } from '@ui/components/dataDisplay/Typography/UiTypography.type';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';
 import {
@@ -17,16 +21,13 @@ import {
     getStatusBorderColor,
     getStatusColor
 } from '@ui/utils/colorLibrary';
-import type { IUiButton } from '@ui/components/input/Button/UiButton.type';
-import type { TColors } from '@ui/utils/colorLibrary';
-import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import type { IUiTypography } from '@ui/components/dataDisplay/Typography/UiTypography.type';
 // @ui
 
 const UiButton = (props: IUiButton): JSX.Element => {
     // Variables
     const {
         icon,
+        iconSize,
         label,
         isLoading,
         className,
@@ -323,7 +324,7 @@ const UiButton = (props: IUiButton): JSX.Element => {
 
         const loaderClasses = isLoading ? 'fa-spin' : '';
 
-        return hasIconContainer ? `h-auto ${iconSizeClasses[size]} ${loaderClasses}` : `${loaderClasses}`;
+        return hasIconContainer ? `h-auto ${iconSize ? `w-${iconSize}` : iconSizeClasses[size]} ${loaderClasses}` : `${loaderClasses}`;
     };
 
     const getButtonClasses = (): string => {

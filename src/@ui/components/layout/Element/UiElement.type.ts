@@ -1,5 +1,5 @@
 // @core
-import type { IDefaultComponent } from '@core/models/Component.type';
+import type { IDefaultComponent } from '@core/misc/models/Component.type';
 // @ui
 import type { TColor, TSize } from '@ui/resources/type/Common.type';
 
@@ -8,4 +8,6 @@ export interface IUiElement extends IDefaultComponent{
 	color?: TColor;
 	size?: TSize;
 	hasShadow?: boolean;
+	isRounded?: boolean;
+	style?: React.CSSProperties
 }

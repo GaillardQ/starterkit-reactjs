@@ -1,17 +1,15 @@
 // Misc libs
 import type { LogoutOptions } from '@auth0/auth0-react';
-import { useAuth0 } from '@auth0/auth0-react';
-import type { TWsException, TWsExceptionList } from '@core/models/Error.type';
-import type { TCallParams, TUrlUpdate } from '@core/models/Network.type';
-import { WsDataModel } from '@core/models/Network.type';
-import type { ILocalStorageProviderReturn } from '@core/services/LocalStoragService';
-import useLocalStorage from '@core/services/LocalStoragService';
 import type { ReplaceOperation } from 'fast-json-patch';
+import { useEffect, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { compare } from 'fast-json-patch';
-import {
-    useEffect,
-    useState
-} from 'react';
+// @core
+import type { TWsException, TWsExceptionList } from '@core/misc/models/Error.type';
+import type { TCallParams, TUrlUpdate } from '@core/misc/models/Network.type';
+import type { ILocalStorageProviderReturn } from '@core/misc/services/LocalStoragService';
+import { WsDataModel } from '@core/misc/models/Network.type';
+import useLocalStorage from '@core/misc/services/LocalStoragService';
 
 export type TStorageKeys = 'access_token';
 

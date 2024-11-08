@@ -1,8 +1,8 @@
 // Misc libs
 import type { FC } from 'react';
 // @core
-import type { Route } from '@core/models/Route.type';
-import type { User } from '@core/models/User.type';
+import type { Route } from '@core/misc/models/Route.type';
+import type { User } from '@core/misc/models/User.type';
 
 export interface IModuleNavigation {
 	slug: string;

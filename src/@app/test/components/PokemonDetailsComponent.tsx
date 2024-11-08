@@ -1,14 +1,15 @@
 // Misc libs
-import { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { capitalize } from 'lodash';
-// @app/test
+import { useEffect } from 'react';
+// @app
+import PokemonFormComponent from '@app/test/components/PokemonFormComponent';
 import type { PokemonDetails } from '@app/test/models/PokemonDetailsModel';
 // @core
-import type { TCallReturn } from '@core/providers/NetworkProvider';
+import type { TCallReturn } from '@core/misc/providers/NetworkProvider';
 // @ui
-import UiElement from '@ui/components/layout/Element/UiElement';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import UiElement from '@ui/components/layout/Element/UiElement';
 
 interface IParams {
   details: TCallReturn<PokemonDetails>;
@@ -49,7 +50,9 @@ const PokemonDetailsComponent = (params: IParams): JSX.Element => {
                     </UiElement>
                 </UiTypography>
             </UiElement>
-
+            <UiElement className='w-1/3'>
+                <PokemonFormComponent pokemon={ details?.data } />
+            </UiElement>
         </UiElement>
     );
 };

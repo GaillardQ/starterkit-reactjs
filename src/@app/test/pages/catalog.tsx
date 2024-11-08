@@ -4,7 +4,7 @@ import PageComponent from '@app/common/components/PageComponent';
 import PokemonCatalogComponent from '@app/test/components/PokemonCatalogComponent';
 import usePokemonProvider from '@app/test/providers/PokemonProvider';
 // @core
-import '@core/resources/assets/css/index.css';
+import '@core/misc/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiElement from '@ui/components/layout/Element/UiElement';

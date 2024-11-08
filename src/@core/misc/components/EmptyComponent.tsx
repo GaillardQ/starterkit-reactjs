@@ -1,7 +1,7 @@
 // Misc libs
 import { Fragment } from 'react';
-// @/core
-import type { IPageProps } from '@core/models/Route.type';
+// @core
+import type { IPageProps } from '@core/misc/models/Route.type';
 
 const EmptyComponent = ({ children }: IPageProps): JSX.Element => <Fragment>{ children }</Fragment>;
 

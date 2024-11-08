@@ -9,9 +9,12 @@ const UiElement = (props: IUiElement): JSX.Element => {
         className = '',
         children,
         color = 'default',
+        onClick,
         size = 'medium',
         variant = 'default',
         hasShadow = true,
+        isRounded = true,
+        style = {}
     } = props;
 
     // Getters
@@ -21,16 +24,19 @@ const UiElement = (props: IUiElement): JSX.Element => {
                 default:    '',
                 primary:    '',
                 secondary:  '',
+                white: ''
             },
             container: {
                 default:    '',
-                primary:    'bg-white',
-                secondary:  'bg-neutral-950 bg-opacity-5',
+                primary:    'bg-white dark:bg-slate-800',
+                secondary:  'bg-neutral-950 bg-opacity-5 dark:bg-gray-700',
+                white: '',
             },
             page: {
                 default:    '',
-                primary:    'bg-white',
-                secondary:  'bg-neutral-950 bg-opacity-5',
+                primary:    'bg-white dark:bg-slate-800',
+                secondary:  'bg-neutral-950 bg-opacity-5 dark:bg-gray-700',
+                white: '',
             },
         };
         return colorClasses[variant][color];
@@ -66,11 +72,11 @@ const UiElement = (props: IUiElement): JSX.Element => {
     const getVariantClasses = (): string => {
         const variantClasses = {
             container: {
-                xsmall: 'rounded-sm',
-                small: 'rounded',
-                medium: 'rounded-md',
-                large: 'rounded-lg',
-                xlarge: 'rounded-xl'
+                xsmall: isRounded ? 'rounded-sm' : '',
+                small: isRounded ? 'rounded' : '',
+                medium: isRounded ? 'rounded-md' : '',
+                large: isRounded ? 'rounded-lg' : '',
+                xlarge: isRounded ? 'rounded-xl' : ''
             },
             page: {
                 xsmall: '',
@@ -101,6 +107,7 @@ const UiElement = (props: IUiElement): JSX.Element => {
 
     const getClassNames = (): string => [
         className,
+        onClick ? 'cursor-pointer' : '',
         getVariantClasses(),
         getColorClasses(),
         getPaddingClasses(),
@@ -108,7 +115,11 @@ const UiElement = (props: IUiElement): JSX.Element => {
     ].join(' ');
 
     return (
-        <div className={ getClassNames() }>
+        <div
+            className={ getClassNames() }
+            style={ style }
+            onClick={ (e: React.MouseEvent<HTMLElement>) => onClick ? onClick(e) : null }
+        >
             { children && <Fragment>{ children }</Fragment> }
         </div>
     );

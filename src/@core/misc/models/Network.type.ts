@@ -1,5 +1,6 @@
-import type { TCallReturn } from '@core/providers/NetworkProvider';
-import type { TWsException } from './Error.type';
+// @core
+import type { TWsException } from '@core/misc/models/Error.type';
+import type { TCallReturn } from '@core/misc/providers/NetworkProvider';
 
 export type TPostResponse = undefined;
 export type TPutResponse = undefined;

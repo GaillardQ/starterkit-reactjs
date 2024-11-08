@@ -1,9 +1,9 @@
 // @app/test
-import type { PokemonsList } from '@app/test/models/PokemonsListModel';
 import type { PokemonDetails } from '@app/test/models/PokemonDetailsModel';
+import type { PokemonsList } from '@app/test/models/PokemonsListModel';
 // @core
-import useNetworkProvider   from '@core/providers/NetworkProvider';
-import type { TCallReturn } from '@core/providers/NetworkProvider';
+import type { TCallReturn } from '@core/misc/providers/NetworkProvider';
+import useNetworkProvider from '@core/misc/providers/NetworkProvider';
 
 type TPokemonService = {
     useGetCatalog: () => TCallReturn<PokemonsList>;

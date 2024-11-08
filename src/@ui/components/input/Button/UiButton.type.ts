@@ -1,6 +1,8 @@
-import type { IconProp } from '@fortawesome/fontawesome-svg-core';
-import type { TColor, TSize, TStatus } from '@ui/resources/type/Common.type';
+// Misc libs
 import type { ButtonHTMLAttributes } from 'react';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
+// @ui
+import type { TColor, TSize, TStatus } from '@ui/resources/type/Common.type';
 
 export interface IUiButton extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'css'|'type'> {
   /** Theme that define color */
@@ -9,6 +11,8 @@ export interface IUiButton extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
   isDisabled?: boolean;
   /** Icon to display */
   icon?: IconProp;
+  /** Icon size */
+  iconSize?: number;
   /** Button alignment */
   alignment?: 'left'|'right';
   /** Displays a loading state */

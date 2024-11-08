@@ -8,10 +8,10 @@ import { moduleRouter as routesCommon } from '@app/common/resources/misc/Router'
 // @app/test
 import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 // @core
-import RouterComponent from '@core/components/RouteComponent';
-import type { User } from '@core/models/User.type';
-import '@core/resources/assets/css/index.css';
-import useLocalStorage from '@core/services/LocalStoragService';
+import RouterComponent from '@core/misc/components/RouteComponent';
+import type { User } from '@core/misc/models/User.type';
+import '@core/misc/resources/assets/css/index.css';
+import useLocalStorage from '@core/misc/services/LocalStoragService';
 // @ui
 import UiElement from '@ui/components/layout/Element/UiElement';
 
@@ -32,7 +32,7 @@ const App = ({ render }: IProps): JSX.Element => {
         isAuthenticated
     } = useAuth0();
     const localStorageProvider = useLocalStorage({ access_token: 'access_token' });
-	const defaultTheme = createTheme();
+    const defaultTheme = createTheme();
 
     // Callbacks
     const loadAuth = useCallback(
@@ -73,18 +73,18 @@ const App = ({ render }: IProps): JSX.Element => {
     ]);
 
     return (
-		<ThemeProvider theme={defaultTheme}>
-			<CssBaseline />
-			<UiElement variant='page'>
-				<RouterComponent
-					modules={ {
-						common: routesCommon,
-						test: routesTest
-					} }
+        <ThemeProvider theme={ defaultTheme }>
+            <CssBaseline />
+            <UiElement variant='page'>
+                <RouterComponent
+                    modules={ {
+                        common: routesCommon,
+                        test: routesTest
+                    } }
 
-				/>
-			</UiElement>
-		</ThemeProvider>
+                />
+            </UiElement>
+        </ThemeProvider>
     );
 };
 

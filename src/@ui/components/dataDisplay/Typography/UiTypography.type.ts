@@ -1,6 +1,7 @@
-// @core
-import type { TColors } from '@ui/utils/colorLibrary';
+// Misc libs
 import type { HTMLProps } from 'react';
+// @ui
+import type { TColors } from '@ui/utils/colorLibrary';
 
 export type TTextWeight =
   'hairline' | 'thin' | 'light' | 'normal'| 'regular' | 'medium' | 'semibold' | 'bold' | 'extrabold' | 'black';

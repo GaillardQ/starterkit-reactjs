@@ -2,11 +2,11 @@
 import type { FC, ReactElement } from 'react';
 import { Fragment } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-// @core
-import NoMatchComponent from '@core/components/NoMatchComponent';
-import type { IModuleRouter } from '@core/models/Module.type';
-import type { Route as RouteType } from '@core/models/Route.type';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
+// @core
+import type { IModuleRouter } from '@core/misc/models/Module.type';
+import type { Route as RouteType } from '@core/misc/models/Route.type';
+import NoMatchComponent from '@core/misc/components/NoMatchComponent';
 
 interface TProps {
   modules: Record<string, IModuleRouter>;
