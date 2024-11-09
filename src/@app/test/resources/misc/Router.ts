@@ -2,8 +2,8 @@
 import Catalog from '@app/test/pages/catalog';
 import Details from '@app/test/pages/details';
 // @core
-import type { IModuleRouter } from '@core/models/Module.type';
-import { Route } from '@core/models/Route.type';
+import type { IModuleRouter } from '@core/misc/models/Module.type';
+import { Route } from '@core/misc/models/Route.type';
 
 export interface ITestModuleRouter extends IModuleRouter {
   routes: {

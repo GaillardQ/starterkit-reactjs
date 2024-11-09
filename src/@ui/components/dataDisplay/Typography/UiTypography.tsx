@@ -1,6 +1,6 @@
 // @ui
-import { getTextColor } from '@ui/utils/colorLibrary';
 import type { IUiTypography } from '@ui/components/dataDisplay/Typography/UiTypography.type';
+import { getTextColor } from '@ui/utils/colorLibrary';
 
 const UiTypography = (props: IUiTypography): JSX.Element => {
     const {
@@ -16,19 +16,7 @@ const UiTypography = (props: IUiTypography): JSX.Element => {
         ...others
     } = props;
 
-    const sizeMap: Record<number, string> = {
-        8: 'text-8',
-        10: 'text-10',
-        12: 'text-12',
-        14: 'text-14',
-        16: 'text-16',
-        18: 'text-18',
-        20: 'text-20',
-        24: 'text-24',
-        30: 'text-30',
-        32: 'text-32',
-        36: 'text-36'
-    };
+    const sizeMap: Record<number, string> = new Array(50).fill(1).reduce((list, i, index) => ({ ...list, [(index+1)*2]: `text-${(index+1)*2}` }), {});
 
     const fontMap = {
         text: 'font-text',

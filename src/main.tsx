@@ -4,7 +4,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import faIcons from '@fortawesome/fontawesome-free-solid';
 import { BrowserRouter } from 'react-router-dom';
 import App from './@app/common/page/app';
-import Authentication from '@core/providers/AuthenticationProvider';
+import Authentication from '@core/misc/providers/AuthenticationProvider';
 
 fontawesome.library.add(faIcons);
 

@@ -1,3 +1,4 @@
+// @ui
 import type { TColor, TStatus } from '@ui/resources/type/Common.type';
 
 // Types

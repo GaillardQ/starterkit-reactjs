@@ -1,16 +1,16 @@
 // Misc libs
+import { capitalize } from 'lodash';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { capitalize } from 'lodash';
 // @app/test
-import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 import type { PokemonsList, TPokemon } from '@app/test/models/PokemonsListModel';
+import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 // @core
-import type { TCallReturn } from '@core/providers/NetworkProvider';
+import type { TCallReturn } from '@core/misc/providers/NetworkProvider';
 // @ui
-import UiElement from '@ui/components/layout/Element/UiElement';
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
 import UiButton from '@ui/components/input/Button/UiButton';
+import UiElement from '@ui/components/layout/Element/UiElement';
 
 interface IParams {
   catalog: TCallReturn<PokemonsList>;

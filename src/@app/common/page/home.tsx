@@ -5,11 +5,11 @@ import PageComponent from '@app/common/components/PageComponent';
 // @app/test
 import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 // @core
-import '@core/resources/assets/css/index.css';
+import '@core/misc/resources/assets/css/index.css';
 // @ui
 import UiTypography from '@ui/components/dataDisplay/Typography/UiTypography';
-import UiElement from '@ui/components/layout/Element/UiElement';
 import UiButton from '@ui/components/input/Button/UiButton';
+import UiElement from '@ui/components/layout/Element/UiElement';
 
 const Home = (): JSX.Element => {
     // Hooks

@@ -1,4 +1,4 @@
-// Misc libs
+// @ui
 import UiElement from '@ui/components/layout/Element/UiElement';
 
 const NoMatchComponent = (): JSX.Element => <UiElement>URL INCONNUE</UiElement>;

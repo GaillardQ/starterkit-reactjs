@@ -1,4 +1,3 @@
-
 export interface TWsException {
   property: string;
   code: string;

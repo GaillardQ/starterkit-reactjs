@@ -1,10 +1,10 @@
 // @app/test
-import usePokemonService from '@app/test/services/PokemonService';
-import type { PokemonsList } from '@app/test/models/PokemonsListModel';
 import type { PokemonDetails } from '@app/test/models/PokemonDetailsModel';
+import type { PokemonsList } from '@app/test/models/PokemonsListModel';
+import usePokemonService from '@app/test/services/PokemonService';
 // @core
-import type { IProvider, TCallParams, WsDataModel } from '@core/models/Network.type';
-import type { TCallReturn } from '@core/providers/NetworkProvider';
+import type { IProvider, TCallParams, WsDataModel } from '@core/misc/models/Network.type';
+import type { TCallReturn } from '@core/misc/providers/NetworkProvider';
 
 export interface IPokemonProvider extends IProvider {
   data: {

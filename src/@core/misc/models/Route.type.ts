@@ -1,7 +1,7 @@
 // Misc libs
 import type { ReactNode } from 'react';
 // @core
-import EmptyComponent from '@core/components/EmptyComponent';
+import EmptyComponent from '@core/misc/components/EmptyComponent';
 
 interface IRoute {
 	component: (props: IPageProps) => JSX.Element;
@@ -48,7 +48,7 @@ export class Route implements IRoute {
 
     public uri = (params?: Record<string, unknown>) : string => {
         const path = this.pathbuilder(this);
-        const url = `${this.module}/${path}`;
+        const url = `/${this.module}/${path}`;
         return params ? this.insertParams(url, params): url;
     };
 

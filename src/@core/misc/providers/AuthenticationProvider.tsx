@@ -1,15 +1,10 @@
 // Misc libs
-import { Fragment }      from 'react';
-import {
-    Auth0Provider,
-    useAuth0
-}                        from '@auth0/auth0-react';
+import type { AppState, Auth0ProviderOptions } from '@auth0/auth0-react';
+import { Fragment } from 'react';
+import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
-import type {
-    AppState,
-    Auth0ProviderOptions
-}                        from '@auth0/auth0-react';
-import type { IPageProps } from '@core/models/Route.type';
+// @core
+import type { IPageProps } from '@core/misc/models/Route.type';
 
 const Wrapper = ({ children }: IPageProps): JSX.Element => {
 
@@ -39,7 +34,7 @@ const Authentication = ({ children }: IPageProps): JSX.Element => {
         clientId: import.meta.env.VITE_API_AUTH_ID || '',
         useRefreshTokens: true,
         authorizationParams: {
-            audience: 'myapp-gate',
+            audience: import.meta.env.VITE_AUTH0_AUDIENCE,
             scope: 'openid profile email',
             redirect_uri: import.meta.env.VITE_AUTH0_CALLBACK_URL
         },

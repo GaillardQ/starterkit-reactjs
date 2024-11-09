@@ -5,12 +5,12 @@ import PageComponent from '@app/common/components/PageComponent';
 // @app/test
 import { moduleRouter as routesTest } from '@app/test/resources/misc/Router';
 // @core
-import '@core/resources/assets/css/index.css';
+import '@core/misc/resources/assets/css/index.css';
 // @ui
-import UiElement from '@ui/components/layout/Element/UiElement';
-import UiButton from '@ui/components/input/Button/UiButton';
 import PokemonDetailsComponent from '@app/test/components/PokemonDetailsComponent';
 import usePokemonProvider from '@app/test/providers/PokemonProvider';
+import UiButton from '@ui/components/input/Button/UiButton';
+import UiElement from '@ui/components/layout/Element/UiElement';
 
 const Details = (): JSX.Element => {
     // Hooks
