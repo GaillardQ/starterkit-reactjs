@@ -1,9 +1,9 @@
 // Misc libs
 import {
-    sum,
-    isNaN,
     isEmpty,
-    isNumber
+    isNaN,
+    isNumber,
+    sum
 } from 'lodash';
 
 export type TValidationReturn = boolean | string;
@@ -142,7 +142,7 @@ export const float = (value: string): TValidationReturn => {
 export const integer = (value: number): TValidationReturn => {
     const message = 'Doit être un nombre entier';
 
-    return Number.isInteger(value) || message;
+    return Number.isInteger(value) || !isNaN(parseInt(value.toString())) || message;
 };
 
 export const floatOrPercentage = (value: string): TValidationReturn => {

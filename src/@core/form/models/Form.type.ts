@@ -35,4 +35,4 @@ export type TFormDefinition<T extends FieldValues> = {
 	methods: UseFormReturn<T>
 }
 
-export type TFieldComponent = 'text' | 'select'
+export type TFieldComponent = 'date' | 'number' | 'passsword' | 'text' | 'select'

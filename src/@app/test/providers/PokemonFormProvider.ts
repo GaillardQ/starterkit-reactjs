@@ -1,4 +1,5 @@
 // Misc libs
+import { useEffect, useMemo } from 'react';
 import type { RegisterOptions, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 // @app
@@ -8,7 +9,6 @@ import type { TFormDefinition, TFormModel } from '@core/form/models/Form.type';
 import { integer, required } from '@core/form/providers/validation';
 // @ui
 import type { IUiSelectOption } from '@ui/components/input/Select/UiSelect.type';
-import { useEffect, useMemo } from 'react';
 
 export type TPokemonFormData = {
 	id: number;
@@ -38,7 +38,7 @@ const usePokemonForm = (pokemon?: TPokemonFormData): TFormDefinition<TPokemonFor
                     integer: integer as Validate<number, TPokemonFormData>
                 }
             } as RegisterOptions<TPokemonFormData>,
-            type: 'text',
+            type: 'number',
         },
         {
             label: 'Nom',

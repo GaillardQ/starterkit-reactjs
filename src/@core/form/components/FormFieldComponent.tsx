@@ -14,6 +14,9 @@ type TFormFieldComponentProps<T extends FieldValues> = {
 }
 
 const Components: Record<TFieldComponent, <T extends FieldValues>(params: FormFieldModel<T>) => JSX.Element> = {
+    date: TextfieldInputComponent,
+    number: TextfieldInputComponent,
+    passsword: TextfieldInputComponent,
     text: TextfieldInputComponent,
     select: DropdownInputComponent
 };

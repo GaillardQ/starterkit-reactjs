@@ -13,7 +13,8 @@ const TextfieldInputComponent = <T extends FieldValues>(params: FormFieldModel<T
         label,
         name,
         register,
-        rules = {}
+        rules = {},
+        type
     } = params;
 
     return (
@@ -25,6 +26,7 @@ const TextfieldInputComponent = <T extends FieldValues>(params: FormFieldModel<T
                 <UiTextfield
                     label={ label }
                     className='w-full'
+                    type={ type ?? 'text' }
                     { ...(register && name ? register(name as Path<T>, rules) : {}) }
                     { ...field }
                 />
